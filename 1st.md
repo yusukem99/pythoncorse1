@@ -23,6 +23,7 @@ python3
 変数の宣言/代入
 
 ## 型
+Interger,Float,Boolean,Strings
 
 ## 演算子
 
@@ -45,3 +46,14 @@ def 関数名 : 引数、返り値
 
 ## スコープ
 ローカルスコープ,グローバルスコープ
+
+# 課題
+
+## 変数と演算子
+https://www.kaggle.com/code/fork/25258219
+
+## データ型
+https://www.kaggle.com/code/fork/25258226
+
+## リスト
+https://www.kaggle.com/code/fork/26034864

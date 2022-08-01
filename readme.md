@@ -1,5 +1,5 @@
 
-# pythonプログラミング
+# pythonプログラミングⅠ
 
 ## 第一回
 自己紹介
@@ -10,12 +10,21 @@ pythonについて
 
 hello world
 
+教科書（Kaggle Courses)
+https://www.kaggle.com/learn
+
 ## 第n回
+
 ビルドイン関数
+help,enumerate
 
 パッケージマネジャとサードパーティー製パッケージ
 
 requirement.txt
+
+リスト
+
+len,indexing,slicing,remove,append,sum,max,min
 
 ## 第n回
 プログラミングの基本となる3つの処理【順次・分岐・反復】
@@ -27,7 +36,14 @@ asciiコード
 
 ## 第n回
 git
+ファイル入出力
+PILモジュール
+圧縮データ
+画像
+jpg
+exif
 
+crip
 正規表現
 
 ## 第n回
@@ -90,6 +106,8 @@ hls
 ## 第n回
 flask uwsgi
 パケット構造
+
+# pythonプログラミングⅡ
 
 ## 第n回
 データベース連携
