@@ -2,24 +2,23 @@
 # pythonプログラミングⅠ
 
 ## 第一回
-自己紹介
+- 自己紹介
+- 授業全体の解説
+- pythonについて
+- pythonでできること、強み
+- PEPとは
+- インタープリター、機械語
+- hello world
 
-授業全体の解説
+## 開発環境(docker, vscode, venv)
 
-pythonについて
-
-pythonでできること、強み
-
-インタープリター、機械語
-
-hello world
-
-開発環境(docker, vscode, venv)
+- dockerのインストール
+- attach
+- linuxの基本操作
 
 https://docs.microsoft.com/ja-jp/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
 
-
-ハイパーバイザとコンテナ
+ - ハイパーバイザとコンテナ
 
 教科書（Kaggle Courses)
 
@@ -92,10 +91,6 @@ cmap
 正規表現
 
 ## 第n回
-timeモジュール
-スレッド
-
-## 第n回
 シーケンス図とは
 
 ステートレス・ステートフル
@@ -112,6 +107,10 @@ header body
 multipart json xml
 
 http(s) websocket webrtc rtp webtransport
+
+## 第n回
+- timeモジュール
+- スレッド
 
 ### 課題
 - tcpのシーケンス図を描く
@@ -146,7 +145,7 @@ webサーバ構築(flask, uwsgi)
 公開鍵暗号
 
 ## 第n回
-tcp/udpソケット
+tcp/udpソケットプログラミング
 
 ## 第n回
 - ブロードキャスト
