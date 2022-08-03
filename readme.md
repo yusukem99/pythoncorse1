@@ -6,7 +6,11 @@
 
 pythonについて
 
-開発環境(vscode, venv)
+開発環境(docker, vscode, venv)
+https://docs.microsoft.com/ja-jp/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+
+
+ハイパーバイザとコンテナ
 
 hello world
 
@@ -14,30 +18,39 @@ hello world
 https://www.kaggle.com/learn
 
 ## 第n回
+プログラミングの基本となる3つの処理【順次・分岐・反復】
 
 ビルドイン関数
 help,enumerate
+
+リスト
+ソート
+len,indexing,slicing,remove,append,sum,max,min
+list結合
+
+## 第n回
+randomモジュール
 
 パッケージマネジャとサードパーティー製パッケージ
 
 requirement.txt
 
-リスト
-
-len,indexing,slicing,remove,append,sum,max,min
-
-## 第n回
-プログラミングの基本となる3つの処理【順次・分岐・反復】
 
 ## 第n回
 asciiコード
 2,8,16進数
 シフト演算
+参照渡し、値渡し
 
 ## 第n回
 git
 ファイル入出力
+cv2
 PILモジュール
+figure, axis
+settitle
+subplot
+cmap
 圧縮データ
 画像
 jpg
@@ -47,6 +60,7 @@ crip
 正規表現
 
 ## 第n回
+timeモジュール
 スレッド
 
 ## 第n回
@@ -135,6 +149,9 @@ numpy scikit-learn
 
 グレースケールとは
 https://qiita.com/yoya/items/96c36b069e74398796f3
+
+- 演習
+ビルボード置き換え
 
 ## 機械学習Ⅰ
 評価指標
