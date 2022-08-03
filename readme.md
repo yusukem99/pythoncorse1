@@ -4,59 +4,91 @@
 ## 第一回
 自己紹介
 
+授業全体の解説
+
 pythonについて
 
+pythonでできること、強み
+
+インタープリター、機械語
+
+hello world
+
 開発環境(docker, vscode, venv)
+
 https://docs.microsoft.com/ja-jp/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
 
 
 ハイパーバイザとコンテナ
 
-hello world
-
 教科書（Kaggle Courses)
+
 https://www.kaggle.com/learn
 
 ## 第n回
 プログラミングの基本となる3つの処理【順次・分岐・反復】
+- if
+- for, while
 
-ビルドイン関数
-help,enumerate
+### ビルドイン関数
+- help
+- enumerate
 
-リスト
-ソート
-len,indexing,slicing,remove,append,sum,max,min
+### リスト
+- 操作(slicing, indexing)
+- 関数(len,remove,append,sum,max,min,sort)
 list結合
 
 ## 第n回
-randomモジュール
 
-パッケージマネジャとサードパーティー製パッケージ
-
+### パッケージマネジャとサードパーティー製パッケージ
 requirement.txt
 
+randomモジュール
+
+### 課題
+サイコロアプリ（n個, 和,積、いかさまサイコロ）
 
 ## 第n回
-asciiコード
+ファイル入出力
+with open r rb w wb
+
 2,8,16進数
+
+文字コードとは
+- asciiコード
+- shift-jis
+- uff-8
+
+base64とは
+
 シフト演算
 参照渡し、値渡し
 
+### 課題
+exifを読み取ってみる
+
 ## 第n回
 git
-ファイル入出力
-cv2
+- config
+- add
+- commit 
+- push
+- pull
+
+
+###  画像
+- 圧縮画像(jpg)
+- 無圧縮画像(bmp)
+
 PILモジュール
+cv2
+crip
 figure, axis
 settitle
 subplot
 cmap
-圧縮データ
-画像
-jpg
-exif
 
-crip
 正規表現
 
 ## 第n回
@@ -81,18 +113,20 @@ multipart json xml
 
 http(s) websocket webrtc rtp webtransport
 
+### 課題
+- tcpのシーケンス図を描く
+
 ## 第n回
-base64とは
 
 ハッシュ値
-
-MD5とは
+- MD5
+- SHA-256
 
 HTTP認証とは
 
 https://developer.mozilla.org/ja/docs/Web/HTTP/Authentication#basic_%E8%AA%8D%E8%A8%BC%E6%96%B9%E5%BC%8F
 
-Basic認証/Digest認証
+- Basic認証/Digest認証
 
 www-Authorizationヘッダー
 
@@ -101,6 +135,10 @@ https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/WWW-Authenticate
 セッション、トークン
 
 https://magazine.techcareer.jp/technology/skill/11273/
+
+
+## 第n回
+webサーバ構築(flask, uwsgi)
 
 ## 第n回
 ユーザ認証
@@ -111,14 +149,18 @@ https://magazine.techcareer.jp/technology/skill/11273/
 tcp/udpソケット
 
 ## 第n回
-ブロードキャスト　マルチキャスト　ユニキャスト　ループバック
+- ブロードキャスト
+- マルチキャスト　
+- ユニキャスト　
+- ループバック
 
 ## 第n回 
-webrtc aiortc
-hls
+いろいろなプロトコル
+- rtp, rtsp
+- HLS
+- webrtc(aiortc)
 
 ## 第n回
-flask uwsgi
 パケット構造
 
 # pythonプログラミングⅡ
@@ -128,24 +170,22 @@ flask uwsgi
 
 postgres連携
 
-射影,選択,結合（select,where,join)
-
-挿入,削除,更新（insert, delete, update)
+- 射影,選択,結合（select,where,join)
+- 挿入,削除,更新（insert, delete, update)
 
 ## 第n回
-グラフ描画
-matplotlib
+グラフ描画(matplotlib.pyplot)
 
-##
-numpy scikit-learn
+## 第n回
+- numpy
+- scikit-learn
 
 ## 画像処理
 
-グレースケール
-
-アフィン変換
-
-射影変換
+- グレースケール
+- 二値画像
+- アフィン変換
+- 射影変換
 
 グレースケールとは
 https://qiita.com/yoya/items/96c36b069e74398796f3
@@ -153,19 +193,24 @@ https://qiita.com/yoya/items/96c36b069e74398796f3
 - 演習
 ビルボード置き換え
 
-## 機械学習Ⅰ
+## 第n回
+### 機械学習Ⅰ
 評価指標
 
-回帰タスク
+- 回帰タスク
+- 分類タスク
+- 多分類タスク
 
-分類タスク
+## 第n回
 
-多分類タスク
+### 機械学習Ⅱ
 
-## 機械学習Ⅱ
+- 行列の基礎
+- 畳み込みニューラルネットワーク(CNN)
+- ストライド
+- フィルター
 
-畳み込みニューラルネットワーク
+## 課題
+fashion-mnistでの分類モデルの作成
 
-ストライド
-
-フィルター
+https://www.kaggle.com/code/pavansanagapati/a-simple-cnn-model-beginner-guide/notebook
