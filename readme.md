@@ -13,8 +13,16 @@
 ## 開発環境(docker, vscode, venv)
 
 - dockerのインストール
-- attach
+- docker images
+    - docker ps
+    - docker attach
+    - docker exec -it [containername] /bin/bash
+    - docker start
+    - docker stop
 - linuxの基本操作
+    - ls,cd,cat,touch
+    - apt-get
+    - apt-cache
 
 https://docs.microsoft.com/ja-jp/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
 
@@ -53,11 +61,18 @@ randomモジュール
 with open r rb w wb
 
 2,8,16進数
+ - 16 == 0o20 == 0b10
+
+ ### 課題
+ - 100 = 
+ - 150 =
 
 文字コードとは
 - asciiコード
 - shift-jis
 - uff-8
+
+URLエンコードとは
 
 base64とは
 
@@ -65,7 +80,14 @@ base64とは
 参照渡し、値渡し
 
 ### 課題
-exifを読み取ってみる
+- https://www.setsuki.com/hsp/ext/segment/app0.htm
+- https://beyondjapan.com/blog/2016/11/start-binary-reading-with-jpeg-exif/
+
+- SOI(0xFF oxD8)
+- 最後（0xff 0xd9)
+
+# 課題
+jpg判定関数
 
 ## 第n回
 git
@@ -100,6 +122,9 @@ get post
 ステータスコード
 
 200/401/500...etc
+
+# リクエストデータのダンプ
+req.prepare
 
 urllib.request
 
@@ -158,9 +183,14 @@ tcp/udpソケットプログラミング
 - rtp, rtsp
 - HLS
 - webrtc(aiortc)
+    - STUN
+    - ステートフルインスペクション
+    - SDP
+    - ICE
 
 ## 第n回
 パケット構造
+リトルエンディアン/ビックエンディアン
 
 # pythonプログラミングⅡ
 
@@ -180,7 +210,10 @@ postgres連携
 - scikit-learn
 
 ## 画像処理
+画像をndarrayで扱ってみる
+- RGB（A)とは
 
+- 平均プーリング,Maxプーリング
 - グレースケール
 - 二値画像
 - アフィン変換
