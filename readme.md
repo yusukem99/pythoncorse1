@@ -49,6 +49,10 @@ list結合
 ## 第n回
 
 ### パッケージマネジャとサードパーティー製パッケージ
+# pip
+    - pip install
+    - pip freeze
+
 requirement.txt
 
 randomモジュール
@@ -60,16 +64,13 @@ randomモジュール
 ファイル入出力
 with open r rb w wb
 
+### 組み込み関数format(), 文字列メソッドstr.format(), f文字列
 2,8,16進数
  - 16 == 0o20 == 0b10
 
- ### 課題
- - 100 = 
- - 150 =
-
 文字コードとは
-- asciiコード
-- shift-jis
+- asciiコード https://www.k-cube.co.jp/wakaba/server/ascii_code.html
+- shift-jis http://charset.7jp.net/sjis.html
 - uff-8
 
 URLエンコードとは
@@ -205,6 +206,12 @@ postgres連携
 ## 第n回
 グラフ描画(matplotlib.pyplot)
 
+##
+ - 中央値
+ - 平均値
+ - 分散
+ - 
+
 ## 第n回
 - numpy
 - scikit-learn
@@ -215,6 +222,7 @@ postgres連携
 
 - 平均プーリング,Maxプーリング
 - グレースケール
+- 適応的閾値処理
 - 二値画像
 - アフィン変換
 - 射影変換
