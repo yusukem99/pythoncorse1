@@ -52,6 +52,8 @@
  - データ可視化Ⅱ
     - 棒グラフとヒートマップ [Bar Charts and Heatmaps]
     - 散布図 [Scatter Plots]
+    - データの分布 [Distributions]
+    - 図の選定 [Choosing Plot Types and Custom Styles]
 
 ## 第六回
 
