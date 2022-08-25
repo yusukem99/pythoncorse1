@@ -32,7 +32,11 @@
  - https://docs.microsoft.com/ja-jp/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
  - ハイパーバイザとコンテナ
 
-教科書（Kaggle Courses) https://www.kaggle.com/learn
+```bash
+git clone https://github.com/yusukem99/pythoncorse1
+cd ~/pythoncourse1
+docker run -v `pwd`:/app -p 8888:8888 --name pythoncourse pythoncourse
+```
 
 ## 第n回
 プログラミングの基本となる3つの処理【順次・分岐・反復】
