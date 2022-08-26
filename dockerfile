@@ -4,7 +4,7 @@ SHELL ["/bin/bash", "-c"]
 RUN apt-get update -y
 RUN pip install --upgrade pip
 RUN pip install notebook
-RUN pip instal pandas
+RUN pip install pandas
 RUN pip install japanize-matplotlib
 RUN pip install tensorflow
 RUN pip install git+https://github.com/yusukem99/learntools.git

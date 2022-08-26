@@ -35,7 +35,7 @@
 ```bash
 git clone https://github.com/yusukem99/pythoncorse1
 cd ~/pythoncourse1
-docker run -v `pwd`:/app -p 8888:8888 --name pythoncourse pythoncourse
+docker run -v ${pwd}:/app -p 8888:8888 --name pythoncourse pythoncourse
 ```
 
 ## 第n回
