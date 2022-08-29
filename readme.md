@@ -3,13 +3,13 @@
 シラバスはおおよその目安と考えてください。時間が余った場合は次回の内容を先取りします。
 
 ## 第１回
-- 自己紹介
+- [講師紹介](https://www.myuko.net)
 - 授業全体の解説
 - pythonについて
     - pythonでできること
     - 強み
-- Kaggleについて
-    - Kaggleとは
+- [Kaggle](https://www.kaggle.com/)について
+    - Kaggle
 - プログラミング導入 [Intro to Programming]
     - 演算子と変数 [Arithmetic and Variables]
     - 関数 [Functions]
