@@ -255,10 +255,12 @@ bool関数に整数型の値を渡すと、その値が0ならFalse、それ以�
 それぞれの単語を**キー**、論文のインデックスを含むリストを**バリュー**としたペアの**辞書型(dict)**を返すように関数を完成させてください。
 
 ここでは問２で作成した`word_search`を活用してください。
+```
 例
     def multi_word_search(doc_list, keywords):
     #関数内でword_search関数を呼び出す
     hit_list = word_search(doc_list, 'casino')
+```
 例
 ```
     >>> doc_list = ["The Learn Python Challenge Casino.", "They bought a car and a casino", "Casinoville"]
