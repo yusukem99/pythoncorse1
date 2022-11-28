@@ -88,7 +88,23 @@ CSVファイルのパス
 
 変数`centered_price`に`price`行のそれぞれの値から`price`の平均値を引いた引いたものを代入してください。
 
-このような操作を中心化といい、機械学習の前処理として行われることがあります。
+このような操作を中心化(centering)といい、機械学習の前処理として行われることがあります。
 
 ## 問５
-もっともコスパがいいワインはどれでしょうか？`bargain_wine`に`points`/`price`の比率がもっとも高いワイン名(`title`)を代入してください。
+もっともお買い得なワインはどれでしょうか？`bargain_wine`に`points`/`price`の比率がもっとも高いワイン名(`title`)を代入してください。
+
+## 問６
+`description`を読んでみると色々な言葉でワインの味が表現されています。
+
+ここで`tropical`と`ftuity`のどちらで表現されることが多いでしょうか？
+
+変数`descriptor_counts`に`Series`型でそれぞれの単語が使われた行の数をを代入してください。
+
+例
+```
+>descriptor_counts
+
+tropical    10
+fruity      20
+dtype: int64
+```
