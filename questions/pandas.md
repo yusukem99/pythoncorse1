@@ -118,3 +118,15 @@ dtype: int64
 95点以上なら`3`, 85点以上で95より低ければ`2`,それ以外は`1`の値を持つように、`Series`型の値を`star_ratings`に代入してください。
 
 さらにカナダワイン協会から支援を受けることになったので、カナダ産のワインは無条件で星3とします。
+
+# Grouping and Sorting
+
+## 問１
+このデータセットの中でもっともたくさんのレビューを書いた人は誰でしょうか？
+
+`taster_twitter_handle`をインデックスとして、それぞれのレビュー数の合計値をもつ`Series`を`reviews_written`に代入してください。
+
+## 問２
+今あるお金で変える一番いいワインはどれでしょうか？ワインの値段をインデックスとして、その値段ごとに最も点数(points)の高いものを値としてもつSerires型の値を宣言してください。
+2.
+What is the best wine I can buy for a given amount of money? Create a Series whose index is wine prices and whose values is the maximum number of points a wine costing that much was given in a review. Sort the values by price, ascending (so that 4.0 dollars is at the top and 3300.0 dollars is at the bottom).
