@@ -127,6 +127,31 @@ dtype: int64
 `taster_twitter_handle`をインデックスとして、それぞれのレビュー数の合計値をもつ`Series`を`reviews_written`に代入してください。
 
 ## 問２
-今あるお金で変える一番いいワインはどれでしょうか？ワインの値段をインデックスとして、その値段ごとに最も点数(points)の高いものを値としてもつSerires型の値を宣言してください。
-2.
-What is the best wine I can buy for a given amount of money? Create a Series whose index is wine prices and whose values is the maximum number of points a wine costing that much was given in a review. Sort the values by price, ascending (so that 4.0 dollars is at the top and 3300.0 dollars is at the bottom).
+今あるお金で買える一番いいワインはどれでしょうか？
+
+ワインの値段(price)をインデックスとして、それぞれの値段ごとに最も点数(points)の高いものをもつSerires型の値を`best_rating_per_price`に代入してください。
+
+ここで値段は昇順になるようにしてください。一番上の値が$4.0、一番最後の値が$3300になります。
+
+## 問３
+ワインを種類(variety)毎にグループに分けると、それぞれの中でもっとも安いものと高いものはいくらになるでしょうか？
+
+ワインの種類(variery)をインデックスとして、最大値(max)と最小値(min)の列を持つ`DataFrame`型の値を`price_extremes`に代入してください。
+
+## 問４
+もっとも高いワインの種類は何でしょうか？
+
+問３の`price_extremes`を値段の最大値で降順に並べかえた`DataFrame`型の値を`sorted_varieties`に代入してください。
+
+最高値段の同じものは最低値段が高いほうが上にくるようにしてください。
+
+## 問５
+ワインのレビューをした人(taster_name)をインデックスとして、それぞれの評点の平均値をもつ`Series`型の値を`reviewer_mean_ratings`に代入してください。
+
+レビューする人によって評点にばらつきはあるでしょうか？`describe()`メソッドを使って確かめてください。
+
+## 問６
+
+ワインの種類(variery)と生産国(country)の組み合わせでもっとも多いものは何でしょうか？
+
+種類(variery)と生産国(country)の組み合わせをインデックスとして、それぞれの組み合わせの合計数をもつ`Series`型の値を`country_variety_counts`に代入してください。さらに降順で並べ替えてください。
