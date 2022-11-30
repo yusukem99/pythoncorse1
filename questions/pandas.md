@@ -155,3 +155,13 @@ dtype: int64
 ワインの種類(variery)と生産国(country)の組み合わせでもっとも多いものは何でしょうか？
 
 種類(variery)と生産国(country)の組み合わせをインデックスとして、それぞれの組み合わせの合計数をもつ`Series`型の値を`country_variety_counts`に代入してください。さらに降順で並べ替えてください。
+
+# Data Types and Missing Values
+
+## 問１
+
+`reviews`の`points`列の型は何でしょうか？
+
+## 問２
+
+`reviews`の`points`列を取り出して`str`型に変換した`Series`型の値を`point_strings`に代入してください。
