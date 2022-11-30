@@ -115,7 +115,7 @@ dtype: int64
 
 しかしこのデータの評点(points)は80-100の範囲になっているため、３段階の星の格付けに変更します。
 
-95点以上なら`3`, 85点以上で95より低ければ`2`,それ以外は`1`の値を持つように、`Series`型の値を`star_ratings`に代入してください。
+95点以上なら`3`, 85点以上で95より低ければ`2`,それ以外は`1`の値を持つように、`Series`を`star_ratings`に代入してください。
 
 さらにカナダワイン協会から支援を受けることになったので、カナダ産のワインは無条件で星3とします。
 
@@ -136,32 +136,53 @@ dtype: int64
 ## 問３
 ワインを種類(variety)毎にグループに分けると、それぞれの中でもっとも安いものと高いものはいくらになるでしょうか？
 
-ワインの種類(variery)をインデックスとして、最大値(max)と最小値(min)の列を持つ`DataFrame`型の値を`price_extremes`に代入してください。
+ワインの種類(variery)をインデックスとして、最大値(max)と最小値(min)の列を持つ`DataFrame`を`price_extremes`に代入してください。
 
 ## 問４
 もっとも高いワインの種類は何でしょうか？
 
-問３の`price_extremes`を値段の最大値で降順に並べかえた`DataFrame`型の値を`sorted_varieties`に代入してください。
+問３の`price_extremes`を値段の最大値で降順に並べかえた`DataFrame`を`sorted_varieties`に代入してください。
 
 最高値段の同じものは最低値段が高いほうが上にくるようにしてください。
 
 ## 問５
-ワインのレビューをした人(taster_name)をインデックスとして、それぞれの評点の平均値をもつ`Series`型の値を`reviewer_mean_ratings`に代入してください。
+ワインのレビューをした人(taster_name)をインデックスとして、それぞれの評点の平均値をもつ`Series`を`reviewer_mean_ratings`に代入してください。
 
 レビューする人によって評点にばらつきはあるでしょうか？`describe()`メソッドを使って確かめてください。
 
 ## 問６
-
 ワインの種類(variery)と生産国(country)の組み合わせでもっとも多いものは何でしょうか？
 
-種類(variery)と生産国(country)の組み合わせをインデックスとして、それぞれの組み合わせの合計数をもつ`Series`型の値を`country_variety_counts`に代入してください。さらに降順で並べ替えてください。
+種類(variery)と生産国(country)の組み合わせをインデックスとして、それぞれの組み合わせの合計数をもつ`Series`を`country_variety_counts`に代入してください。さらに降順で並べ替えてください。
 
 # Data Types and Missing Values
 
 ## 問１
-
 `reviews`の`points`列の型は何でしょうか？
 
 ## 問２
+`reviews`の`points`列を取り出し、`str`型に変換して`point_strings`に代入してください。
 
-`reviews`の`points`列を取り出して`str`型に変換した`Series`型の値を`point_strings`に代入してください。
+## 問３
+`price`が`null`になっている行の数を`n_missing_prices`に代入してください。
+
+
+## 問４
+もっともたくさんのワインを作っている地域(regions)はどこでしょうか？
+
+`region_1`に出現する地域ごとの数をを集計して、降順にソートした`Series`を作成してください。
+
+`region_1`はデータが欠落していることが多いので、その場合は`Unknown`を設定します。
+
+求める値は下のような`Series`になります。
+```
+>reviews_per_region
+
+Unknown                    21247
+Napa Valley                 4480
+                           ...  
+Bardolino Superiore            1
+Primitivo del Tarantino        1
+Name: region_1, Length: 1230, dtype: int64
+```
+
