@@ -59,3 +59,47 @@
 もし前者が正しければ、モデルの作成に悪影響を与えるでしょうか？また後者だとうでしょうか？
 
 あなたの考えを書いてください。下のリンクのディスカッションを参考にしてアイデアを出してみましょう。
+
+# Your First Machine Learning Model
+
+## 問1 予測対象`y`を決める
+予測対象の変数、ここでは住宅の販売価格を探して、`y`に代入してください。
+販売価格を表す変数名が分からないときは列名の一覧を出力してみましょう。
+
+## 問2 特徴量`X`を決定する
+次は予測に使う因子(特徴量)を決定して,`X:DataFrame`に代入してください。
+
+まずは特徴量として使用する項目のリストを作り、その後データ全体から対象の列を抜き出しましょう。
+
+ここでは下の一覧をコピーして使ってもよいものとします。
+
+- LotArea
+- YearBuilt
+- 1stFlrSF
+- 2ndFlrSF
+- FullBath
+- BedroomAbvGr
+- TotRmsAbvGrd
+
+# Review Data¶
+Before building a model, take a quick look at X to verify it looks sensible
+
+Step 3: Specify and Fit Model¶
+Create a DecisionTreeRegressor and save it iowa_model. Ensure you've done the relevant import from sklearn to run this command.
+
+Then fit the model you just created using the data in X and y that you saved above.
+
+Step 4: Make Predictions¶
+Make predictions with the model's predict command using X as the data. Save the results to a variable called predictions.
+
+Think About Your Results
+Use the head method to compare the top few predictions to the actual home values (in y) for those same homes. Anything surprising?
+
+
+# Model Validation
+
+# Underfitting and Overfitting
+
+# Random Forests
+
+# Machine Learning Competitions
