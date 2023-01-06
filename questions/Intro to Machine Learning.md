@@ -7,9 +7,7 @@
 
 彼は資金と不動産のデータを提供するので、あなたはその不動産の価値を予測するモデル（機械学習で予測を算出する計算式）を作るということになりました。
 
-不動産に関してあなたは知識がなかったので、これまでどのように不動産を価値を予測していたのか彼に聞いてみました。
-
-彼はなんとなく直観で分かるものだとい言いました。
+不動産に関して知識がないので、彼がこれまでどのように不動産を価値を予測していたのか聞いてみると、なんとなく直観で分かるものだとい言いました。
 
 しかしさらに掘り下げて聞いてみると、どうやら過去の不動産の価格から特定のパターンを見出しているということが分かりました。
 
@@ -81,20 +79,40 @@
 - BedroomAbvGr
 - TotRmsAbvGrd
 
-# Review Data¶
-Before building a model, take a quick look at X to verify it looks sensible
+## 問3 データの確認¶
+予測モデルを生成する前に、特徴量`X`に目を通して適切な値になっていることを確認しましょう。
 
-Step 3: Specify and Fit Model¶
-Create a DecisionTreeRegressor and save it iowa_model. Ensure you've done the relevant import from sklearn to run this command.
+## 問4 モデルの準備と学習
+まず`import`文を使って`sklearn`から必要なライブラリを導入します。
 
-Then fit the model you just created using the data in X and y that you saved above.
+さらに`DecisionTreeRegressor`を作成して`iowa_model`に代入してください。
+
+完了したら用意したモデルを、上で用意した`X`と`y`で学習(`fit`)させましょう。
+
+## 問4 モデルで予測してみる
+
+作成したモデルの`predict`メソッドを使って特徴量`X`から予測値を出し、`predictions`に代入してください。
 
 Step 4: Make Predictions¶
 Make predictions with the model's predict command using X as the data. Save the results to a variable called predictions.
 
-Think About Your Results
-Use the head method to compare the top few predictions to the actual home values (in y) for those same homes. Anything surprising?
+## 問5 結果を考察する
+`head`メソッドを使って予測データ`predictions`と正解データ`y`とを比較して見ましょう。
+同じ家の予測価格と実際の価格を差はどうなっていますか？その結果について考察してください。
 
+## 補足 モデルを可視化してみる
+```
+import matplotlib.pyplot as plt
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+
+plt.figure(figsize=(25, 20))
+iowa_model = DecisionTreeRegressor(random_state=1, max_depth=2)
+
+# Fit the model
+iowa_model.fit(X, y)
+plot_tree(iowa_model, feature_names=feature_names, filled=True)
+plt.show()
+```
 
 # Model Validation
 
