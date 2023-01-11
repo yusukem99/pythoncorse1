@@ -21,7 +21,7 @@
 
 さらにそれぞれの予想価格をその条件でのグループの価格の平均値とします。
 
-この分岐条件を作るステップを、モデルを学習またはモデルをフィットするなどといいます。学習に使用したデータを訓練データといいます。
+この分岐条件を作るステップを、モデルを学習またはモデルをフィットするなどといいます。学習に使用したデータを学習データといいます。
 
 下の図でどちらがより住宅データのパターンをとらえているといえるでしょうか？
 
@@ -33,7 +33,7 @@
 
 完成した決定木の分岐をたどることによって住宅の価格を予想することができます。たどり着いた最後の点を葉(leaf)と言います。
 
-決定木の分岐条件や葉の値は訓練データによって決まります。まずは与えられたデータを詳しくみていきましょう。
+決定木の分岐条件や葉の値は学習データによって決まります。まずは与えられたデータを詳しくみていきましょう。
 
 # Basic Data Exploration
 
@@ -93,9 +93,6 @@
 
 作成したモデルの`predict`メソッドを使って特徴量`X`から予測値を出し、`predictions`に代入してください。
 
-Step 4: Make Predictions¶
-Make predictions with the model's predict command using X as the data. Save the results to a variable called predictions.
-
 ## 問5 結果を考察する
 `head`メソッドを使って予測データ`predictions`と正解データ`y`とを比較して見ましょう。
 同じ家の予測価格と実際の価格を差はどうなっていますか？その結果について考察してください。
@@ -115,6 +112,40 @@ plt.show()
 ```
 
 # Model Validation
+ここでは前回作ったモデルの評価をしていきます。
+
+はじめに一番上のコードセルを実行して、前回作成したモデルを再現してください。
+
+## 問１
+特徴量`X:DataFrame`、正解データ`y:Series`をそれぞれ学習データ(`train_X`, `train_y`)と評価データ(`val_X`, `val_y`)に分けたいと思います。
+
+`train_test_split`関数を使って分割してください。
+
+ここでは`train_test_split`関数の引数`random_state`に`1`を指定してください。
+
+## 問2
+決定木`iowa_model:DecisionTreeRegressor`を作成して、適当なデータをもとに学習させてください。
+
+ここでは`DecisionTreeRegressor`に`random_state=1`を指定してください。
+
+## 問3
+評価データから住宅価格の予想`val_predictions`を出力してください。
+
+次にその予想データをいくつか表示してみましょう。
+
+また評価データから正解をいくつか表示してみましょう。
+
+一番上のコードセルで出力した`in-sample`で学習したモデルの予測データと比較して、どのような違いがあるでしょうか？
+
+評価データによる予測は`in-sample`によるのものと比較してこのような違いが現れるのはなぜでしょうか？
+
+What do you notice that is different from what you saw with in-sample predictions (which are printed after the top code cell in this page).
+
+Do you remember why validation predictions differ from in-sample (or training) predictions? This is an important idea from the last lesson.
+
+Step 4: Calculate the Mean Absolute Error in Validation Data¶
+
+Is that MAE good? There isn't a general rule for what values are good that applies across applications. But you'll see how to use (and improve) this number in the next step.
 
 # Underfitting and Overfitting
 
