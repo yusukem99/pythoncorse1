@@ -40,11 +40,11 @@
 アイオワ州の住宅データのファイル`'../input/home-data-for-ml-course/train.csv'`を`DataFrame`型として変数`home_data`に代入してください。
 
 ## 問２
-チュートリアルで扱った`DataFrame`のメソッドを使って要約統計を作成してください。
+チュートリアルで扱った`DataFrame`のメソッドを使って要約統計(summary statistic)を作成してください。
 さらに、その統計を用いて下の変数に適切な値を代入してください。
 
-`avg_lot_size`:敷地面積の平均(整数)
-`newest_home_age`:一番新しい家の築年数
+- `avg_lot_size`:敷地面積の平均(もっとも近い整数で)
+- `newest_home_age`:一番新しい家の築年数
 
 ## 問３
 一番新しい家でも、作られてからかなりの年数がたっているようです。
