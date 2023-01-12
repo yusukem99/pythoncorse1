@@ -1,15 +1,14 @@
 
 # How Models Work
-
 たとえば、あなたのいとこが不動産を運用するビジネスで成功していたとします。
 
 彼はあなたが学校でPythonを習ったということを聞いて、一緒にビジネスをやろうと持ちかけてきました。
 
 彼は資金と不動産のデータを提供するので、あなたはその不動産の価値を予測するモデル（機械学習で予測を算出する計算式）を作るということになりました。
 
-不動産に関して知識がないので、彼がこれまでどのように不動産を価値を予測していたのか聞いてみると、なんとなく直観で分かるものだとい言いました。
+不動産に関して知識がないので、まずは彼がこれまでどのように不動産を価値を予測していたのか聞いてみると、なんとなく直観で分かるものだとい言いました。
 
-しかしさらに掘り下げて聞いてみると、どうやら過去の不動産の価格から特定のパターンを見出しているということが分かりました。
+しかしさらに掘り下げて聞いてみると、どうやら過去の不動産のデータから特定のパターンを見出しているということが分かりました。
 
 機械学習の仕組みも彼のやっていることと同じで、過去のデータから一定の規則を見つけだし、その規則を計算式に変換しています。
 
@@ -137,15 +136,16 @@ plt.show()
 
 一番上のコードセルで出力した`in-sample`で学習したモデルの予測データと比較して、どのような違いがあるでしょうか？
 
-評価データによる予測は`in-sample`によるのものと比較してこのような違いが現れるのはなぜでしょうか？
+評価データによる予測は`in-sample`によるのものと比較して、このような違いが現れるのはなぜでしょうか？
 
-What do you notice that is different from what you saw with in-sample predictions (which are printed after the top code cell in this page).
+## 問4
+平均絶対値誤差(MAE)を算出してください。
 
-Do you remember why validation predictions differ from in-sample (or training) predictions? This is an important idea from the last lesson.
+算出した値をみてどうでしょうか。これはよい結果といえるでしょうか？
 
-Step 4: Calculate the Mean Absolute Error in Validation Data¶
+MAEの値が良いか悪いかはケースバイケースで、一般的な基準はありません。
 
-Is that MAE good? There isn't a general rule for what values are good that applies across applications. But you'll see how to use (and improve) this number in the next step.
+次回のコースではこの誤差を小さくする方法について学んでいきます。
 
 # Underfitting and Overfitting
 
