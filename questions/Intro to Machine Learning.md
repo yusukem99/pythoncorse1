@@ -156,7 +156,7 @@ MAEの値が良いか悪いかはケースバイケースで、一般的な基�
 MAEを算出する関数`get_mae`を作りました。まずは下のコードセルを実行して関数定義を読み込んでください。
 
 ## Step 1: Compare Different Tree Sizes
-もっともMAEが小さくなる歯の数`best_tree_size`はいくつでしょうか？
+もっともMAEが小さくなる葉の数`best_tree_size`はいくつでしょうか？
 
 `max_leaf_nodes`に葉の最大値の候補が入っています。
 
