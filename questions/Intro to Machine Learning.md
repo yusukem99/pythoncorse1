@@ -179,6 +179,10 @@ MAEを算出する関数`get_mae`を作りました。まずは下のコード�
 ## Step 1: Use a Random Forest
 下のコードセルの空欄を埋めてください。
 
+まず`rf_model`にランダムフォレストのモデルを定義してください。
+
+次に検証データを使って作ったモデルのMAEを算出します。
+
 ## 次のステップ
 ここまでは設問の指示にしたがってモデルを作成してきました。
 
@@ -189,64 +193,57 @@ MAEを算出する関数`get_mae`を作りました。まずは下のコード�
 ## Introduction
 これからモデルを作成して、予想結果をコンペティションに提出してみます。
 
+特徴量を変更するなど独自にアレンジして、よい成績を目指してください。
+
 ## Train a model for the competition¶
 上のコードセルでは`train_X`と`train_y`を使ってモデルを学習させました。
 
 今度は下のセルで、すべてのデータである`X`と`y`を使ってランダムフォレストを作成してください。
 
-モデルが完成したらテストデータを読み込んで予想を作成してください。
+モデルが完成したらテストデータを(`test`)読み込んで予想を作成してください。
 
 ## Generate a submission¶
 下のコードセルを実行してCSVファイルを作成し、コンペティションに提出します
 
 ## Next, follow the instructions below:
 
-1. Save Versionを押して
-2. ビューワを起動します
-3. OutPutタブからCSVファイルを選択し、提出をクリックします。
+1. 右上の`Save Version`を押すとポップアップウィンドウが現れます。
+2. `Save and Run All`になっていることを確認し、`Save`をクリックしてください。
+3. 実行が完了したら、`(...)`をクリック`Open In VIewwer`を実行してください。
+3. 画面下の`OutPut`タブからCSVファイルを選択し、提出をクリックします。
 
-#
-Begin by clicking on the Save Version button in the top right corner of the window. This will generate a pop-up window.
-Ensure that the Save and Run All option is selected, and then click on the Save button.
-This generates a window in the bottom left corner of the notebook. After it has finished running, click on the number to the right of the Save Version button. This pulls up a list of versions on the right of the screen. Click on the ellipsis (...) to the right of the most recent version, and select Open in Viewer. This brings you into view mode of the same page. You will need to scroll down to get back to these instructions.
-Click on the Output tab on the right of the screen. Then, click on the file you would like to submit, and click on the Submit button to submit your results to the leaderboard.
-You have now successfully submitted to the competition!
+これでコンペティションに提出することができました。`leaderboard`から成績を確認することができます。
 
-If you want to keep working to improve your performance, select the Edit button in the top right of the screen. Then you can change your code and repeat the process. There's a lot of room to improve, and you will climb up the leaderboard as you work.
+結果はどうだったどうでしょうか。
 
-Continue Your Progress
-There are many ways to improve your model, and experimenting is a great way to learn at this point.
+さらにモデルを改善する方法はあります。もっとも有効な方法は特徴量を追加することです。
 
-The best way to improve your model is to add features. To add more features to the data, revisit the first code cell, and change this line of code to include more column names:
+ここでデータの一部の列には数値以外のを含むものがあるので、これらを特徴量に使用するにはひと手間必要です。
 
-features = ['LotArea', 'YearBuilt', '1stFlrSF', '2ndFlrSF', 'FullBath', 'BedroomAbvGr', 'TotRmsAbvGrd']
-Some features will cause errors because of issues like missing values or non-numeric data types. Here is a complete list of potential columns that you might like to use, and that won't throw errors:
+下に数値の列を列挙しました。これらはそのまま特徴量として使用することができます。
 
-'MSSubClass'
-'LotArea'
-'OverallQual'
-'OverallCond'
-'YearBuilt'
-'YearRemodAdd'
-'1stFlrSF'
-'2ndFlrSF'
-'LowQualFinSF'
-'GrLivArea'
-'FullBath'
-'HalfBath'
-'BedroomAbvGr'
-'KitchenAbvGr'
-'TotRmsAbvGrd'
-'Fireplaces'
-'WoodDeckSF'
-'OpenPorchSF'
-'EnclosedPorch'
-'3SsnPorch'
-'ScreenPorch'
-'PoolArea'
-'MiscVal'
-'MoSold'
-'YrSold'
-Look at the list of columns and think about what might affect home prices. To learn more about each of these features, take a look at the data description on the competition page.
-
-After updating the code cell above that defines the features, re-run all of the code cells to evaluate the model and generate a new submission file.
+- 'MSSubClass'
+- 'LotArea'
+- 'OverallQual'
+- 'OverallCond'
+- 'YearBuilt'
+- 'YearRemodAdd'
+- '1stFlrSF'
+- '2ndFlrSF'
+- 'LowQualFinSF'
+- 'GrLivArea'
+- 'FullBath'
+- 'HalfBath'
+- 'BedroomAbvGr'
+- 'KitchenAbvGr'
+- 'TotRmsAbvGrd'
+- 'Fireplaces'
+- 'WoodDeckSF'
+- 'OpenPorchSF'
+- 'EnclosedPorch'
+- '3SsnPorch'
+- 'ScreenPorch'
+- 'PoolArea'
+- 'MiscVal'
+- 'MoSold'
+- 'YrSold'
