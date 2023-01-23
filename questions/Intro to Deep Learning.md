@@ -6,6 +6,11 @@
 ただ一つの線形ユニットを含むモデルは一次関数になります。
 この練習では線形モデルの使い方を学びましょう。
 
+*Red Wine Quality*というポルトガルの1600点のワインの成分データがあります。このデータは評論家によるブラインドテイストテストの評点(quality rating)を含んでいます。
+下のコードを実行して数行を表示してみましょう。
+
+さらに`shape` メソッドを使ってこのワインデータセットがいくの列を持つのか確認しましょう。
+
 In the tutorial we learned about the building blocks of neural networks: *linear units*. We saw that a model of just one linear unit will fit a linear function to a dataset (equivalent to linear regression). In this exercise, you'll build a linear model and get some practice working with models in Keras.
 
 The *Red Wine Quality* dataset consists of physiochemical measurements from about 1600 Portuguese red wines.  Also included is a quality rating for each wine from blind taste-tests. 
