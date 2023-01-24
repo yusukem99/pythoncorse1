@@ -1,29 +1,50 @@
 # A Single Neuron
 
 ## Introduction
+ニューラルネットワークの構成要素の一つである`liner unit`（線形ユニット）について学びました。
 
-チュートリアルではニューラルネットワークの構成要素の一つである*linear units*（線形ユニット）について学びました。
-ただ一つの線形ユニットを含むモデルは一次関数になります。
+シリアルのカロリー予測の例で見たように、ただ一つの線形ユニットを含むモデルは一次関数になります。
+
+これは単純な線形回帰と同じです。
+
 この練習では線形モデルの使い方を学びましょう。
 
-*Red Wine Quality*というポルトガルの1600点のワインの成分データがあります。このデータは評論家によるブラインドテイストテストの評点(quality rating)を含んでいます。
+ここに`Red Wine Quality`という1600点のポルトガル産ワインの成分データがあります。
+
+このデータは評論家によるブラインドテストの評点(quality rating)を含んでいます。
+
 下のコードを実行して数行を表示してみましょう。
 
-さらに`shape` メソッドを使ってこのワインデータセットがいくの列を持つのか確認しましょう。
+さらに`DataFrame`型の持つ`shape` メソッドを使って、このデータセットがいくつの行と列を持つのか確認しましょう。
 
-In the tutorial we learned about the building blocks of neural networks: *linear units*. We saw that a model of just one linear unit will fit a linear function to a dataset (equivalent to linear regression). In this exercise, you'll build a linear model and get some practice working with models in Keras.
+## 1) Input shape
 
-The *Red Wine Quality* dataset consists of physiochemical measurements from about 1600 Portuguese red wines.  Also included is a quality rating for each wine from blind taste-tests. 
+ワインのどの成分から評点を予想できるでしょうか？
 
-First, run the next cell to display the first few rows of this dataset.
+ここで予測したいものは品質（`quality`）とし、残りの項目を特徴量とします。
 
-Before you get started, run the code cell below to set everything up.
-
-You can get the number of rows and columns of a dataframe (or a Numpy array) with the `shape` attribute.
+モデルの入力`input_shape`にはどのような値を設定すればよいでしょうか？
 
 ## 2) Define a linear model
 
-Now define a linear model appropriate for this task. Pay attention to how many inputs and outputs the model should have.
+それでは線形モデルを定義しましょう。
+
+ヒント：モデルはいくつの入力と出力をもつべきでしょうか？
+
+# 3) Look at the weights
+
+Internally, Keras represents the weights of a neural network with **tensors**. Tensors are basically TensorFlow's version of a Numpy array with a few differences that make them better suited to deep learning. One of the most important is that tensors are compatible with [GPU](https://www.kaggle.com/docs/efficient-gpu-usage) and [TPU](https://www.kaggle.com/docs/tpu)) accelerators. TPUs, in fact, are designed specifically for tensor computations.
+
+A model's weights are kept in its `weights` attribute as a list of tensors. Get the weights of the model you defined above. (If you want, you could display the weights with something like: `print("Weights\n{}\n\nBias\n{}".format(w, b))`).
+
+(By the way, Keras represents weights as tensors, but also uses tensors to represent data. When you set the `input_shape` argument, you are telling Keras the dimensions of the array it should expect for each example in the training data. Setting `input_shape=[3]` would create a network accepting vectors of length 3, like `[0.2, 0.4, 0.6]`.)
+ 
+
+# Optional: Plot the output of an untrained linear model
+ 
+The kinds of problems we'll work on through Lesson 5 will be *regression* problems, where the goal is to predict some numeric target. Regression problems are like "curve-fitting" problems: we're trying to find a curve that best fits the data. Let's take a look at the "curve" produced by a linear model. (You've probably guessed that it's a line!)
+ 
+We mentioned that before training a model's weights are set randomly. Run the cell below a few times to see the different lines produced with a random initialization. (There's no coding for this exercise -- it's just a demonstration.)
 
 # Deep Neural Networks
 
