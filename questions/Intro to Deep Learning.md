@@ -31,7 +31,7 @@
 
 ヒント：モデルはいくつの入力と出力をもつべきでしょうか？
 
-# 3) Look at the weights
+## 3) Look at the weights
 
 ニューラルネットの重み（`weight`）は`tensors`と呼ばれる型で保存されています。
 
@@ -56,36 +56,3 @@ print("重み\n{}\n\nバイアス\n{}".format(w, b))
 学習させる前のモデルのパラメーターはランダムに設定されています。
 
 下のセルを実行して、どのような線になるか確認してみましょう。
-
-# Deep Neural Networks
-
-# Introduction #
-
-In the tutorial, we saw how to build deep neural networks by stacking layers inside a `Sequential` model. By adding an *activation function* after the hidden layers, we gave the network the ability to learn more complex (non-linear) relationships in the data.
-
-In these exercises, you'll build a neural network with several hidden layers and then explore some activation functions beyond ReLU. Run this next cell to set everything up!
-
-# 1) Input Shape #
-
-The target for this task is the column `'CompressiveStrength'`. The remaining columns are the features we'll use as inputs.
-
-What would be the input shape for this dataset?
-
-# 2) Define a Model with Hidden Layers #
-
-Now create a model with three hidden layers, each having 512 units and the ReLU activation.  Be sure to include an output layer of one unit and no activation, and also `input_shape` as an argument to the first layer.
-
-# 3) Activation Layers #
-
-Let's explore activations functions some.
-
-The usual way of attaching an activation function to a `Dense` layer is to include it as part of the definition with the `activation` argument. Sometimes though you'll want to put some other layer between the `Dense` layer and its activation function. (We'll see an example of this in Lesson 5 with *batch normalization*.) In this case, we can define the activation in its own `Activation` layer, like so:
-
-```
-layers.Dense(units=8),
-layers.Activation('relu')
-```
-
-This is completely equivalent to the ordinary way: `layers.Dense(units=8, activation='relu')`.
-
-Rewrite the following model so that each activation is in its own `Activation` layer.
