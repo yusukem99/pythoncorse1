@@ -33,18 +33,29 @@
 
 # 3) Look at the weights
 
-Internally, Keras represents the weights of a neural network with **tensors**. Tensors are basically TensorFlow's version of a Numpy array with a few differences that make them better suited to deep learning. One of the most important is that tensors are compatible with [GPU](https://www.kaggle.com/docs/efficient-gpu-usage) and [TPU](https://www.kaggle.com/docs/tpu)) accelerators. TPUs, in fact, are designed specifically for tensor computations.
+ニューラルネットの重み（`weight`）は`tensors`と呼ばれる型で保存されています。
 
-A model's weights are kept in its `weights` attribute as a list of tensors. Get the weights of the model you defined above. (If you want, you could display the weights with something like: `print("Weights\n{}\n\nBias\n{}".format(w, b))`).
+`tensor`は`list`型と似たような機能を持っており、[GPU]](https://www.kaggle.com/docs/efficient-gpu-usage)や[TPU](https://www.kaggle.com/docs/tpu)を利用して高速に動作するため、ディープラーニングに特化しています。
 
-(By the way, Keras represents weights as tensors, but also uses tensors to represent data. When you set the `input_shape` argument, you are telling Keras the dimensions of the array it should expect for each example in the training data. Setting `input_shape=[3]` would create a network accepting vectors of length 3, like `[0.2, 0.4, 0.6]`.)
- 
+モデルの重みは`weights`プロパティで参照することができます。
+
+作ったモデルの重みを参照してみましょう。
+
+例
+
+```
+print("重み\n{}\n\nバイアス\n{}".format(w, b))
+``` 
 
 # Optional: Plot the output of an untrained linear model
- 
-The kinds of problems we'll work on through Lesson 5 will be *regression* problems, where the goal is to predict some numeric target. Regression problems are like "curve-fitting" problems: we're trying to find a curve that best fits the data. Let's take a look at the "curve" produced by a linear model. (You've probably guessed that it's a line!)
- 
-We mentioned that before training a model's weights are set randomly. Run the cell below a few times to see the different lines produced with a random initialization. (There's no coding for this exercise -- it's just a demonstration.)
+
+シリアルのカロリーのような、数値を予測するようなタスクは回帰(`regression`)タスクといいます。
+
+この場合はシリアルのカロリーに一致するような一次関数の傾きと重みを探すことになります。
+
+学習させる前のモデルのパラメーターはランダムに設定されています。
+
+下のセルを実行して、どのような線になるか確認してみましょう。
 
 # Deep Neural Networks
 
