@@ -35,7 +35,9 @@
 
 ニューラルネットの重み（`weight`）は`tensors`と呼ばれる型で保存されています。
 
-`tensor`は`list`型と似たような機能を持っており、[GPU]](https://www.kaggle.com/docs/efficient-gpu-usage)や[TPU](https://www.kaggle.com/docs/tpu)を利用して高速に動作するため、ディープラーニングに特化しています。
+`tensor`はインデックスやスライスの機能を持っており、`numpy`や`list`型と似た性質があります。
+
+また、[GPU](https://www.kaggle.com/docs/efficient-gpu-usage)や[TPU](https://www.kaggle.com/docs/tpu)を利用して高速に動作するため、ディープラーニングに特化しています。
 
 モデルの重みは`weights`プロパティで参照することができます。
 
