@@ -77,30 +77,46 @@ print("重み\n{}\n\nバイアス\n{}".format(w, b))
 
 `input_shape`はどのような値になるでしょうか？
 
-## 2) Define a Model with Hidden Layers #
+## 2) Define a Model with Hidden Layers
 
 それでは、中間層に3つのレイヤーを含むモデルを作成しましょう。それぞれ512の出力と活性化関数にReLUを使います。
 
 出力は1つで、活性化関数はつけません。最初のレイヤーには引数に`input_shape`をつける必要があります。
 
-# 3) Activation Layers #
+## 3) Activation Layers
 
-Let's explore activations functions some.
+全結合層(`Dense layer`)の引数に`activation`を指定することで活性化関数を追加することができました。
 
-The usual way of attaching an activation function to a `Dense` layer is to include it as part of the definition with the `activation` argument. Sometimes though you'll want to put some other layer between the `Dense` layer and its activation function. (We'll see an example of this in Lesson 5 with *batch normalization*.) In this case, we can define the activation in its own `Activation` layer, like so:
+しかし、全結合層(`Dense layer`)と活性化関数(`Activation Function`)の間に*別のレイヤーを追加したい場合はどうすればいいでしょうか？
+
+このようなときは下のように各レイヤを独立して記述することができます。
 
 ```
 layers.Dense(units=8),
 layers.Activation('relu')
 ```
 
-This is completely equivalent to the ordinary way: `layers.Dense(units=8, activation='relu')`.
+これはと下の処理と全く同じです。
 
-Rewrite the following model so that each activation is in its own `Activation` layer.
+```
+layers.Dense(units=8, activation='relu')
+```
 
-# Optional: Alternatives to ReLU #
+*たとえばバッチ正規化(`batch normalization`)などがあります。
 
-There is a whole family of variants of the `'relu'` activation -- `'elu'`, `'selu'`, and `'swish'`, among others -- all of which you can use in Keras. Sometimes one activation will perform better than another on a given task, so you could consider experimenting with activations as you develop a model. The ReLU activation tends to do well on most problems, so it's a good one to start with.
+次のモデルを独立した活性化レイヤを使うように書き直してください。
 
-Let's look at the graphs of some of these. Change the activation from `'relu'` to one of the others named above. Then run the cell to see the graph. (Check out the [documentation](https://www.tensorflow.org/api_docs/python/tf/keras/activations) for more ideas.)
+## Optional: Alternatives to ReLU
+
+活性化関数には`'relu'` の他にも`'elu'`や`'selu'`、`'swish'`などがあります。
+
+ときには他に活性化関数を使ってみると、より高い予測精度がでることがあります。
+
+ReLUは一般的に多くのタスクでよい性能がでるため、広く使われています。
+
+他の活性化関数をグラフを書いて確認してみましょう。
+
+下のセルの活性化関数の名前を`'relu'`から別のものに変更して、セルを実行してみてください。
+
+活性化関数の[ドキュメント](https://www.tensorflow.org/api_docs/python/tf/keras/activations)も読んでみましょう。
 
