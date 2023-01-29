@@ -120,3 +120,13 @@ ReLUは一般的に多くのタスクでよい性能がでるため、広く使�
 
 活性化関数の[ドキュメント](https://www.tensorflow.org/api_docs/python/tf/keras/activations)も読んでみましょう。
 
+# Stochastic Gradient Descent
+
+## Introduction
+
+ここでは学習率とバッチサイズの与える影響について見ていきます。
+
+[`Fuel Economy` データセット](https://www.kaggle.com/datasets/epa/fuel-economy)を使って、エンジンの種類や年式などの特徴量を使い、車の燃費を予想するモデルを作成します。
+
+まず下のセルを実行しデータセットを読み込んでください。
+
