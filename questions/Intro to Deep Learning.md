@@ -130,7 +130,9 @@ ReLUは一般的に多くのタスクでよい性能がでるため、広く使�
 
 まず下のセルを実行しデータセットを読み込んでください。
 
-データに目をとおしてみましょう。ここでは`'FE'` が予測対象で、残りは全て特徴量とします。
+データに目をとおしてみましょう。
+
+ここでは`'FE'` が予測対象で、残りは全て特徴量とします。
 
 ## 1) Add Loss and Optimizer
 
@@ -142,30 +144,27 @@ ReLUは一般的に多くのタスクでよい性能がでるため、広く使�
 
 それでは`X`と`y`を使ってモデルを学習させましょう。
 
-エポック数、バッチサイズをそれぞれ200、128とします。
+エポック数、バッチサイズをそれぞれ`200`、`128`とします。
 
 ## 3) Evaluate Training
 
 モデルの学習の状況を評価してみましょう。
 
-長く学習するほど損失が減っていくのでしょうか？
+学習回数は多ければ多いほどよいのでしょうか？
 
-# 4) Learning Rate and Batch Size
+あなたの答えがでたら下のコードセルを実行してください。
 
-If you trained the model longer, would you expect the loss to decrease further?
+## 4) Learning Rate and Batch Size
 
-With the learning rate and the batch size, you have some control over:
-- How long it takes to train a model
-- How noisy the learning curves are
-- How small the loss becomes
+学習率やバッチサイズを調整することで、以下のようなことが変わってきます。
 
-To get a better understanding of these two parameters, we'll look at the linear model, our ppsimplest neural network. Having only a single weight and a bias, it's easier to see what effect a change of parameter has.
+- 学習にかかる時間
+- 学習曲線のなめらかさ
+- どれだけ損失が小さくなるか
 
-The next cell will generate an animation like the one in the tutorial. Change the values for `learning_rate`, `batch_size`, and `num_examples` (how many data points) and then run the cell. (It may take a moment or two.) Try the following combinations, or try some of your own:
+下のコードセルを実行するとチュートリアルで見たようなアニメーションが生成されます。
 
-下のコードセルを実行するとチュートリアルで見たアニメーションが生成されます。
-
- 学習率（`learning_rate`）バッチサイズ（`batch_size`）, and `num_examples` 
+ 学習率（`learning_rate`）バッチサイズ（`batch_size`）、サンプル数（`num_examples`)を、下のテーブルの組み合わせから選んでそれぞれ代入して実行してみましょう。
 
 
 | `learning_rate` | `batch_size` | `num_examples` |
@@ -179,4 +178,6 @@ The next cell will generate an animation like the one in the tutorial. Change th
 | 0.9             | 4096         | 8192           |
 | 0.99            | 4096         | 8192           |
 
-What effect did changing these parameters have? After you've thought about it, run the cell below for some discussion.
+それぞれのパラメーターがどのようなに学習に影響するのでしょうか。
+
+あなたの答えがでたら下のコードセルを実行してください。
