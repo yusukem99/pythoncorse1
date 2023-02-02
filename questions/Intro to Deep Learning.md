@@ -65,23 +65,27 @@ print("重み\n{}\n\nバイアス\n{}".format(w, b))
 
 `Sequential` レイヤーを積み重ねることで、階層型のニューラルネットワークを構築することができました。
 
-さらに、中間層(`hidden layers`)に活性化関数(`activation function`)を追加することで、ニューラルネットワークにより複雑なデータの関係性を学習させることができます。
+さらに、中間層(`hidden layers`)に活性化関数(`activation function`)を追加することで、さらに複雑なデータの関係性を学習させることができます。
 
 この練習問題では、中間層に複数のレイヤーを含むニューラルネットワークを作成します。また、`ReLU`以外の活性化関数について見ていきましょう。
 
-コンクリートのデータセットが用意されています。ここではコンクリートの成分に基づいて、その圧縮強度(`compressive strength`)を予測してみましょう。
+ここでは[コンクリートのデータセット](https://www.kaggle.com/datasets/elikplim/concrete-compressive-strength-data-set)が用意されています。
+
+コンクリートの成分に基づいて、その圧縮強度(`compressive strength`)を予測してみましょう。
 
 ## 1) Input Shape
 
-ここでの予測対象は`CompressiveStrength`の列で、残りのすべての列を特徴量とします。
+予測対象を`CompressiveStrength`、残りのすべての列を特徴量とします。
 
 `input_shape`はどのような値になるでしょうか？
 
 ## 2) Define a Model with Hidden Layers
 
-それでは、中間層に3つのレイヤーを含むモデルを作成しましょう。それぞれ512の出力と活性化関数にReLUを使います。
+それでは、中間層に3つのレイヤーを含むモデルを作成しましょう。それぞれ`512`の出力と活性化関数にReLUを使います。
 
-出力は1つで、活性化関数はつけません。最初のレイヤーには引数に`input_shape`をつける必要があります。
+出力層の出力は1つで、活性化関数はつけません。
+
+最初のレイヤーには引数に`input_shape`をつけることを忘れないでください。
 
 ## 3) Activation Layers
 
@@ -104,7 +108,7 @@ layers.Dense(units=8, activation='relu')
 
 *たとえばバッチ正規化(`batch normalization`)などがあります。
 
-次のモデルを独立した活性化レイヤを使うように書き直してください。
+次のモデルを、全結合層と活性化関数をそれぞれ独立して使うように書き直してください。
 
 ## Optional: Alternatives to ReLU
 
