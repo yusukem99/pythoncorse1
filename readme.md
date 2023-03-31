@@ -8,6 +8,7 @@
 - pythonについて
     - pythonでできること
     - 強み
+- [pythonの学習ができるオンラインコンテンツ](markdown/links.md)
 - [Kaggle](https://www.kaggle.com/)について
     - Kaggle
 - プログラミング導入 [Intro to Programming]
