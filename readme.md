@@ -6,8 +6,7 @@
 - [講師紹介](https://www.myuko.net)
 - 授業全体の解説
 - pythonについて
-    - pythonでできること
-    - 強み
+    - [pythonでできること](markdown/python.md)
 - [pythonの学習ができるオンラインコンテンツ](markdown/links.md)
 - [Kaggle](https://www.kaggle.com/)について
     - Kaggle
