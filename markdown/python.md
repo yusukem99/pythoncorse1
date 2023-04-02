@@ -69,7 +69,11 @@ DCGANは、潜在変数空間からのサンプリングを介して、現実世
 
 テキストデータから感情を分析したり、人間のように会話することができます。
 
-#### [ChatGPT(GPT)](https://openai.com/blog/chatgpt)
+### [ChatGPT(GPT)](https://openai.com/blog/chatgpt)
+
+OpenAIが開発した大規模言語モデルの一種で、GPT-3.5アーキテクチャに基づいています。自然言語処理や対話システムの分野で活躍し、様々な言語タスクにおいて高い精度を示すことが知られています。
+
+ChatGPTは、人工知能による自然言語理解の進歩を象徴する技術の一つとされています。
 
 ![対話例](../images/chatGPT1.png)
 ![対話例](../images/chatGPT2.png)
