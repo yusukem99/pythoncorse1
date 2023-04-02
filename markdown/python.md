@@ -1,10 +1,13 @@
 # pythonでできること
 
 ## Web開発
-DjangoやFlaskなどのWebフレームワークを使用してWebアプリケーションを構築することができます。さらにソケットプログラミングのための標準ライブラリがあり、ネットワークプログラミングに使用されます。
+[Django](https://www.djangoproject.com/)や[Flask](https://palletsprojects.com/p/flask/)などのWebフレームワークを使用してWebアプリケーションを構築することができます。
+
+さらにソケットプログラミングのための標準ライブラリがあり、ネットワークプログラミングにも使用されます。
 
 ## 機械学習/データ分析
 NumPy、Pandas、Matplotlibなどの強力なライブラリがあり、データの取り扱い、分析、可視化を簡単に行うことができます。
+
 また、機械学習や深層学習のためのフレームワークであるTensorFlow、Keras、PyTorchなどが存在し、AI開発に使用されます。
 
 ## その他
@@ -12,25 +15,55 @@ NumPy、Pandas、Matplotlibなどの強力なライブラリがあり、デー�
 
 # 機械学習
 
-機械学習といってもいろいろな分野があります。
+機械学習は、人工知能の一分野であり、コンピューターがデータを学習し、予測や決定を行うことができるようにする技術です。
 
-- 画像
-- 回帰タスク（住宅の価格や株価を予測する等）
-- 自然言語
+- 画像処理
+
+画像内の物体を認識し、分類や位置の予測をします
+
+- 回帰タスク
+
+数値の予測を行うことが多く、住宅価格や株価などを予測することがあります
+
+- 自然言語処理
+
+テキストデータの分析や翻訳、文章生成などをします
 
 ## 画像処理
 
 ### 物体検出(YOLO)
 
+物体検出とは、画像中に存在する物体の位置と種類を特定するタスクです。
+
+YOLO（You Only Look Once）は、Deep Learningを用いた物体検出手法の一つです。
+
+YOLOは、画像を一度だけニューラルネットワークに通し、物体の位置と種類を同時に予測することができます。
+
+他の手法と比較して高速であるため、ビデオフレームの処理にも適しています。
+
 ![物体検出(YOLO)](../images/yolo.png)
+
+YOLOのネットワークは、バウンディングボックスと物体クラスの予測に関する出力層を持ちます。
+
+このネットワークは、各バウンディングボックスが物体を含む確率を予測し、各バウンディングボックスの座標、大きさ、オブジェクトクラスを同時に予測します。
 
 ### 画像生成
 
-#### [DCGAN](https://www.tensorflow.org/tutorials/generative/dcgan?hl=ja)
+深層学習における画像生成に使用される2つの主要なアルゴリズム
 
-https://www.tensorflow.org/tutorials/generative/dcgan?hl=ja
+- [DCGAN](https://www.tensorflow.org/tutorials/generative/dcgan?hl=ja)
 
-#### [Stable Diffusion](https://www.tensorflow.org/tutorials/generative/generate_images_with_stable_diffusion)
+2015年にRadfordらによって提案されました。
+DCGANは、潜在変数空間からのサンプリングを介して、現実世界に似た高品質の画像を生成できます。
+
+![DCGAN](../images/DCGAN.gif)
+
+- [Stable Diffusion](https://www.tensorflow.org/tutorials/generative/generate_images_with_stable_diffusion)
+
+2021年に発表された、より効率的かつ高品質な画像生成手法です。画像生成の品質が大幅に向上し、生成時間も短縮されました。
+
+![Stable Diffusion](../images/StableDiffusion.gif)
+
 
 ## 自然言語処理
 
