@@ -5,11 +5,12 @@
 ## 第１回
 - [講師紹介](https://www.myuko.net)
 - 授業全体の解説
-- pythonについて
-    - [pythonでできること](markdown/python.md)
-- [pythonの学習ができるオンラインコンテンツ](markdown/links.md)
-- [Kaggle](https://www.kaggle.com/)について
-    - Kaggle
+    - pythonについて
+        - [pythonでできること](markdown/python.md)
+    - [pythonの学習ができるオンラインコンテンツ](markdown/links.md)
+    - [Kaggle](https://www.kaggle.com/)について
+        - [設問の和訳](./questions/)
+
 - プログラミング導入 [Intro to Programming]
     - 演算子と変数 [Arithmetic and Variables]
     - 関数 [Functions]
