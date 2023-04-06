@@ -2,53 +2,95 @@
 
 ## Set up the notebook
 
-これから練習問題を解いていきますが、はじめに一番上のコードセルを実行してください。
+これから練習問題を解いていきます。まず一番上のコードセルを実行します。
 
-問題の答え合わせのために必要な処理で、以降のレッスンでもこのセットアップコードを実行する必要があります。
+これは問題の答え合わせのために必要な処理で、以降のレッスンでも、はじめに実行してください。
 
 コードセルの内側をクリックすると、そのコードセルが選択された状態になります。
 
 コードセルを選択すると左側に三角形が現れるのでクリックしてみましょう。そのコードセルの中身が実行されます。
 
-Question 1
-Next, you will run some code from the tutorial, so you can see how it works for yourself. Run the next code cell without changes.
+## 問1
+次のコードセルを編集しないで実行してください。
 
-Question 2¶
-Now, you will print another message of your choosing. To do this, change print("Your message here!") to use a different message. For instance, you might like to change it to something like:
+このコードセルは`Hello world!`とコードセルの下に出力します。
 
-print("Good morning!")
-print("I am learning how to code :D")
-Or, you might like to see what happens if you write something like print("3+4"). Does it return 7, or does it just think of "3+4" as just another message?
+二行目にある`q1.check()`という関数があなたの解答の答え合わせをしてくれます。この行は変更しないように気をつけてください。
 
-Make sure that your message is enclosed in quotation marks ("), and the message itself does not use quotation marks. For instance, this will throw an error: print("She said "great job" and gave me a high-five!") because the message contains quotation marks. If you decide to take the Python course after completing this course, you will learn more about how to avoid this error in Lesson 6.
+## 問2
 
-Feel free to try out multiple messages!
+次は、出力する文字を変更してみましょう。
 
-Question 3¶
-As you learned in the tutorial, a comment in Python has a pound sign (#) in front of it, which tells Python to ignore the text after it.
+`print("Your message here!")`の部分を変更します。
 
-Putting a pound sign in front of a line of code will make Python ignore that code. For instance, this line would be ignored by Python, and nothing would appear in the output:
+例
 
+- print("Good morning!")
+- print("I am learning how to code :D")
+
+正しく出力することができたら、print("3+4") のように何か書いてみてください。
+
+これは7を返すのでしょうか、それとも単に「3+4」という文字列として認識するのでしょうか？
+
+表示する文字列が引用符（"）で囲まれていること、そして出力する文字の中に引用符を含んでいけないことに注意してください。
+
+たとえば次のように書くとエラーが発生します。
+
+```
+print("She said "great job" and gave me a high-five!")
+```
+
+## 問3
+
+Pythonでは先頭に`#`を付けるとコメントになります。`#`に続く文字はコードとして実行されません。
+
+たとえば、Pythonは下のような`print`関数を無視して何も出力されません。
+
+```python
 #print(1+2)
-Removing the pound sign will make it so that you can run the code again. When we remove the pound sign in front of a line of code, we call this uncommenting.
+```
 
-In this problem, you will uncomment two lines in the code cell below and view the output:
+#を削除すると、コードとして実行できるようになります。
 
-Remove the # in front of q3.hint(). To avoid errors, do NOT remove the # in front of # Uncomment to view hint.
-Next, remove the # in front of q3.solution().
-As in the previous questions, do not change the final line of code that marks your work as completed.
+練習として以下のコードセルから`#`を削除してみましょう。
 
-Question 4¶
-In the tutorial, you defined several variables to calculate the total number of seconds in a year. Run the next code cell to do the calculation here.
+`q3.hint()`と`q3.solution()`のコメントと解除してください。
 
-🌶️ Question 5
-(Questions marked with a 🌶️ will be a little bit more challenging than the others! Remember you can always get a hint or view the solution.)
+`# Uncomment to view hint`の前の`#`は削除しないでください。
 
-The Titanic competition is Kaggle's most famous data science competition. In this competition, participants are challenged to build a machine learning model that can predict whether or not passengers survived the Titanic shipwreck, based on information like age, sex, family size, and ticket number.
+## 問4¶
 
-Run the next code cell without changes to load and preview the titanic data.
+下のコードセルでいくつかの変数を宣言しています。実行して一年間の秒数を計算してみましょう。
 
-Don't worry about the details of the code for now - the end result is just that the all of the titanic data has been loaded in a variable named titanic_data. (In order to learn how to write this code yourself, you can take the Python course and then the Pandas course.)
+世界で一分間に生まれる子供の数は`250`人程度といわれています。
+
+変数`births_per_min`を宣言して、`250`を代入してください。
+
+さらに`births_per_min`を使って変数`births_per_day`に一日に生まれる子供の数を代入してください。
+
+
+## 🌶️ 問5
+
+🌶️マークのついた問題は少し難易度が高くなっています。
+
+[タイタニック号のコンペティション](https://www.kaggle.com/c/titanic)はKaggleで最も有名なコンペティションです。
+
+このコンペティションでは、乗客の年齢、性別、家族の人数、チケット番号などの情報に基づいて、その乗客が生き残ったかどうかを予測する`機械学習モデル`を作ってその精度を競います。
+
+次のコードセルを実行すると、データを読み込んでいくつか表示することができます。
+
+ここではコードの詳細について気にしないでください。`titanic_data`という変数に乗客のデータが読み込まれています。
+
+さらに次のセルを実行してください。以下のような変数を宣言しています。
+
+- total = 乗客の合計人数
+- survived = 生き残った乗客の人数
+- minors = 18歳以下の乗客の人数
+
+最後のコードセルで穴埋めをしていきましょう。(`____`)を削除して以下の変数に値を代入してください。
+
+- survived_fraction = 全体のうち生き残った乗客の割合
+- minors_fraction = 全体のうち18歳以下の乗客の割合
 
 # Functions
 
