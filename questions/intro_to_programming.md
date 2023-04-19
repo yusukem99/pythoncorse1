@@ -1,4 +1,4 @@
-# Arithmetic and Variables
+# Arithmetic and Variables - 算術演算子と変数
 
 ## Set up the notebook
 
@@ -92,7 +92,7 @@ Pythonでは先頭に`#`を付けるとコメントになります。`#`に続�
 - survived_fraction = 全体のうち生き残った乗客の割合
 - minors_fraction = 全体のうち18歳以下の乗客の割合
 
-# Functions
+# Functions - 関数
 
 ## 問1
 [House Prices - Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/overview)
@@ -292,8 +292,7 @@ project_two = cost_of_project("08/10/2000", False)
 print(project_two)
 ```
 
-# Conditions and Conditional Statements
-
+# Conditions and Conditional Statements - 条件とIF文
 ## 問1
 
 あなたは学校の入試課で働いています。
@@ -405,19 +404,13 @@ print(project_two)
 
 この問題では、`get_label()`という関数を作成します。この関数は、次の引数を受け取ります。
 
-- food_type = "solid" or "liquid"
-- serving_size = 包装あたりのサイズ（グラム）
-- calories_per_serving = 包装あたりのカロリー
-- saturated_fat_g = 1グラムあたりの飽和脂肪酸
-- trans_fat_g = 1グラムあたりの反式脂肪酸
-- sodium_mg = 1グラムあたりの塩分
-- sugars_g = 1グラムあたりの糖質
-
-
-trans_fat_g = grams of trans fat in one serving
-sodium_mg = mg of sodium in one serving
-sugars_g = grams of sugar in one serving
-
+- food_type = "solid" または "liquid"
+- serving_size = 一食あたりのサイズ(グラムまたはミリリットル)
+- calories_per_serving = 一食あたりのカロリー
+- saturated_fat_g = 一食あたりの飽和脂肪酸(グラム)
+- trans_fat_g =一食あたりあたりのトランス脂肪酸(グラム)
+- sodium_mg = 一食あたりの塩分（ミリグラム）
+- sugars_g = 一食あたりの砂糖(グラム)
 
 get_label()関数は、引数に各栄養成分が渡されると、それに応じた警告ラベルを出力します。
 
@@ -425,11 +418,11 @@ get_label()関数は、引数に各栄養成分が渡されると、それに応
 
 `excess_sugar()`や`excess_saturated_fat()`関数の説明はありませんが、与えられた栄養価に応じて`True`または`False`を返します。
 
-これから学んでいく機械学習のコースでは、scikit-learnのような他の人が作成した関数を使っていきます。
+これから学んでいく機械学習のコースでは、`scikit-learn`のような他の人が作成した関数を使っていきます。
 
 プログラミングを学んでいく中で、その関数の詳細をすべて読む時間がないことはよくあります。他の人が作成した関数の使い方をおおむね理解して使いこなすことを練習していきましょう。
 
-# Intro to Lists
+# Intro to Lists - リストの基礎
 
 ## 問１
 
@@ -480,14 +473,51 @@ flowers = "pink primrose,hard-leaved pocket orchid,canterbury bells,sweet pea,en
 
 ## 問４
 
-`ratings`にある映画の評価が1-5の五段階でリストアップされています。
+次のコース`Python`では、(`list comprehensions`)という機能を学びます。これは、別のリストの値に基づいてリストを作成することができます。ここでは、その機能にさっと目を通しておきましょう。
 
-4以上の評価がつけられたものの割合を、`percentage_liked`に代入してください。
+次のリストを考えます。
+
+```
+test_ratings = [1, 2, 3, 4, 5]
+```
+
+次のように、リスト内包表記を使うと、`test_ratings`の各要素が4以上かどうかを判定し、その結果を真偽型のリストに変換することができます。
+
+```
+test_liked = [i>=4 for i in test_ratings]
+print(test_liked)
+```
+
+この問題では以下のような関数`percentage_liked()`を定義します。
+
+この関数は、引数としてある映画のレビューのリスト(`ratings`)を受け取り、その中で4以上の評価がつけられたものの割合(`percentage_liked`)を返します。
+
+関数の一部はすでに書かれています。残りを埋めてください。
 
 ## 問５
 
-あるWebサイトの分析をしています。
+ウェブサイトの分析をする会社に勤めています。
 
-`percentage_growth()`関数は`yrs_ago`で指定された年数前のユーザー数と比較して、増加した割合を百分率で返します。
+このサイトのユーザー数を`num_users`というリストに保存しています。このリストの最初の要素は、初年度のユーザー数、2番目の要素は2年目のユーザー数、というようになっています。
 
-以下の関数に誤りがあるので、問題のある個所を修正してください。
+ユーザー数がどのように変化しているかを調べるために、指定した年数前のユーザー数と比較して、ユーザー数の増加割合を返す関数`percentage_growth()`を作ることになりました。
+
+関数は`yrs_ago`で指定された年数前のユーザー数と比較して、増加した割合を百分率で返します。
+
+あなたの同僚が関数を作ってくれましたが、うまく動作しません。何が間違っているのかを見つけて、修正してください。
+
+例
+
+ユーザ数のリスト`num_users`が以下のように与えられたとします。
+
+```
+num_users = [920344, 1043553, 1204334, 1458996, 1503323, 1593432, 1623463, 1843064, 1930992, 2001078]
+```
+
+例えば、
+
+`yrs_ago`が1の場合、関数は`0.036`を返します。これは、`2001078`と`1930992`の差を`1930992`で割ったものになります。
+
+`yrs_ago`が2の場合、関数は`0.072`を返します。これは、`2001078`と`1843064`の差を`1843064`で割ったものになります。
+
+`yrs_ago`が7の場合、関数は`0.66`を返します。これは、`2001078`と`1204334`の差を`1204334`で割ったものになります。
