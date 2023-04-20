@@ -1,16 +1,42 @@
-# Syntax, Variables, and Numbers
+# Syntax, Variables, and Numbers - 文法、変数、数値
 
 ## 問０
 
-`color`に好きな色を入れてください。正解が分からないときは、下のコードセルの`hint()`関数を使うことができます。
+これはちょっとおかしな質問ですが、これからの演習問題を解くための準備です。
+
+以下の質問に答えてください。
+
+*what is your favorite color?*
+
+`color`に適切な値を代入して、`q0.check()`を実行してください。
+
+正解が分からないときは、下のコードセルの`q0.hint()`関数を使うことができます。
 
 ## 問１
 
 円の半径と円の面積を表す変数`radius`と`area`を宣言してください。
 
+下の表を参考にしてください。
+
+| Operator     | Name           | Description                                            |
+|--------------|----------------|--------------------------------------------------------|
+| ``a + b``    | Addition       | Sum of ``a`` and ``b``                                 |
+| ``a - b``    | Subtraction    | Difference of ``a`` and ``b``                          |
+| ``a * b``    | Multiplication | Product of ``a`` and ``b``                             |
+| ``a / b``    | True division  | Quotient of ``a`` and ``b``                            |
+| ``a // b``   | Floor division | Quotient of ``a`` and ``b``, removing fractional parts |
+| ``a % b``    | Modulus        | Integer remainder after division of ``a`` by ``b``     |
+| ``a ** b``   | Exponentiation | ``a`` raised to the power of ``b``                     |
+| ``-a``       | Negation       | The negative of ``a``                                  |
+
+
 ## 問２
 
-`a`と`b`の値を入れ替えてください
+`a`と`b`の値を入れ替えてください。
+
+`a`は`b`が参照していたオブジェクトを参照し、`b`は`a`が参照していたオブジェクトを参照するようにしてください。
+
+下のコードセルの`# Your code goes here. ...`の部分を書き換えてください。
 
 ## 問３a
 1になるように以下の式に括弧を付け加えてください。
@@ -27,35 +53,58 @@
 
 以下の変数に持ち寄ったアメの数が入っています。
 
-砕くアメの数を`to_smash`に代入してください。
+```
+alice_candies = 121
+bob_candies = 77
+carol_candies = 109
+```
+
+`to_smash = -1`の右辺を書き換えて、砕くアメの数を`to_smash`に代入してください。
 
 
-# Functions and Getting Help
+# Functions and Getting Help - 関数とヘルプ
 
 ## 問１
 
-docsringを参考に、以下の関数を完成させてください。 two decimal places: 小数点第二位
+docsringを参考に、以下の関数を完成させてください。 
+
+```
+Return the given number rounded to two decimal places. 
+（与えられた数を小数点以下2桁で四捨五入して返す。）
+```
+
+`round`関数を使うことができます。
 
 ## 問２
 help関数によると、`round`関数は第二引数に負の値を受けることができます。
 
 以下のコードセルでどうなるか試してください。またその処理内容について説明してください。
 
+どのような処理か説明できるようになったら、`q2.solution()`を実行してください。
+
 ## 問３
 
-前回のコースでアメを均等に分け合うために、砕くアメの数を計算する関数を作りました。
+前回のコースで、ボブとキャロルがアメを分け合うときに、余ったアメを砕く数を計算する関数を作成しました。
+
+たとえば、3人で91個のアメを持ち寄った場合、3人とも30個ずつ持って帰り、余った1個を砕くことになります。
 
 今回は任意の人数で分け合うことができるように、以下の関数に**分け合う人数を**表す第二引数を追加してください。
 
-ただし、第二引数が設定されなかった場合のデフォルト値は3とします。
+ただし、第二引数が設定されなかった場合のデフォルト値は3人としてください。
+
+また、docstringも修正してください。
 
 ## 問４
+
+エラーが出たときに、どのようなエラーが出たのか確認することはとても重要です。
 
 以下のコードには何らかのバグを抱えています。それぞれで以下の手順を実行してください。
 
 1. コードを読んで、何が起こるか予想する。
 2. コメントアウトして実行結果を確認する。
 3. コードを修正してエラーが出ないようにする。
+
+ctrl+/を使うと、指定した行をコメントアウトすることができます。
 
 # Booleans and Conditionals
 
