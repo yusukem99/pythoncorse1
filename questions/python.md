@@ -235,9 +235,15 @@ bool関数に整数型の値を渡すと、その値が0なら`False`、それ�
 
 スポーツチームのデータを分析しています。
 
-いま、各チームのメンバーの名前がリストに格納されています。リストの先頭がコーチで、次にキャプテン、そのあとに他の選手が続いています。
+チームのメンバーの名前が格納されたリストがあります。リストの先頭がコーチで、次にキャプテン、そのあとに他の選手が続いています。
 
-さらに上記のチームが成績上位順それぞれ、もう一つのリストに格納されています。
+さらに、上記のようなチームリストが成績上位順にそれぞれ親のリストに格納されています。
+
+例
+
+```
+[['Paul', 'John', 'Ringo', 'George'], ['Jen', 'Jamie']]
+```
 
 もっとも成績が悪かったチームのキャプテンの名前を返す関数`losing_team_captain`を作成してください。
 
@@ -245,9 +251,17 @@ bool関数に整数型の値を渡すと、その値が0なら`False`、それ�
 
 マリオカードの次回作では、新しいアイテム**紫甲羅**が登場します。
 
-このアイテムは最初と最後の走者を入れ替えてしまいます。
+このアイテムはなんと最初と最後の走者を入れ替えてしまいます。
 
 以下の関数`purple_shell`を完成させてください。
+
+例.
+```
+r = ["Mario", "Bowser", "Luigi"]
+purple_shell(r)
+print(r)
+# ["Luigi", "Bowser", "Mario"]
+```
 
 ## 問４
 
@@ -257,13 +271,23 @@ bool関数に整数型の値を渡すと、その値が0なら`False`、それ�
 
 ## 問５
 
-**fashionably late**とは、あえて約束の時間に遅れてくることを表します。
+We're using lists to record people who attended our party and what order they arrived in. For example, the following list represents a party with 7 guests, in which Adela showed up first and Ford was the last to arrive:
 
-海外ではパーティーなどのカジュアルな場に呼ばれたときには、ちょっと遅れるくらいがかっこいいという感覚があるようです。ただし、一番最後はNGです。
+次のリストはパーティに出席した人が、到着した順に並べられています。
+
+```
+party_attendees = ['Adela', 'Fleda', 'Owen', 'May', 'Mona', 'Gilbert', 'Ford']
+```
+
+`Adela`さんは一番初めに、`Ford`さんは一番最後に到着しました。
+
+海外ではパーティーなどのカジュアルな場に呼ばれたときには、ちょっと遅れるくらいがかっこいいという感覚があります。（ただし、一番最後はNGです。）
+
+このことを**fashionably late**といい、あえて約束の時間に遅れてくることを表します。
 
 全体の半分より後に到着した人を`fashionably late`だと定義します。
 
-`arrivals`に到着したメンバーが順にリストされています。`name`で指定した参加者が`fashionably late`か`True`または`False`で返す関数を完成させてください。
+`arrivals`に到着した名前が順に格納されています。`name`で指定された参加者が`fashionably late`かどうかを`True`または`False`で判定する関数を完成させてください。
 
 # Loops and List Comprehensions
 
