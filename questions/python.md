@@ -249,7 +249,7 @@ bool関数に整数型の値を渡すと、その値が0なら`False`、それ�
 
 ## 問３
 
-マリオカードの次回作では、新しいアイテム**紫甲羅**が登場します。
+マリオカートの次回作では、新しいアイテム**紫甲羅**が登場します。
 
 このアイテムはなんと最初と最後の走者を入れ替えてしまいます。
 
@@ -271,8 +271,6 @@ print(r)
 
 ## 問５
 
-We're using lists to record people who attended our party and what order they arrived in. For example, the following list represents a party with 7 guests, in which Adela showed up first and Ford was the last to arrive:
-
 次のリストはパーティに出席した人が、到着した順に並べられています。
 
 ```
@@ -293,31 +291,47 @@ party_attendees = ['Adela', 'Fleda', 'Owen', 'May', 'Mona', 'Gilbert', 'Ford']
 
 ## 問１
 
-`has_lucky_number`関数は、引数`nums`で与えられたリストの中に一つでも7で割り切れる数があればTrueを返します。
+`has_lucky_number`関数は、引数`nums`で与えられたリストの中に一つでも7で割り切れる数があれば`True`を返します。
 
-しかしこの関数はバグを抱えています。下のコードセルを編集して`has_lucky_number`関数を完成させてください。
+しかしこの関数はバグを抱えています。下のコードセル（２つめ）を編集して`has_lucky_number`関数を完成させてください。
 
 ## 問２
 
-下のセルはどのような結果を返すでしょうか？結果を予想したらコメントアウトして実行してください。
+下のコードセルはどのような結果を返すでしょうか？結果を予想したらコメントアウトして実行してください。
+
+```
+[1, 2, 3, 4] > 2
+```
 
 `numpy`や`pandas`では上のような演算子が有効で、それぞれの要素を比較し`[False, False, True, True]`を返してくれます。
 
-`L`で与えられたリストのそれぞれの値に対し、`tresh`より大きい値であれば`True`、小さければ`False`に変換する関数`elementwise_greater_than`を完成させてください。
+`L`で与えられたリストのそれぞれの要素に対し、`thresh`より大きい値であれば`True`、小さければ`False`に変換する関数`elementwise_greater_than`を完成させてください。
+
+例
+```
+    >>> elementwise_greater_than([1, 2, 3, 4], 2)
+    [False, False, True, True]
+```
+
+threshold：しきい値
 
 ## 問３
 
-`menu`にある期間に提供される料理のリストが入っています。
+引数`meals`にある期間に提供される料理のリストが渡されます。
 
 同じメニューが２日続いた場合に`True`をそうでなければ`False`を返すように、`menu_is_boring`関数を完成させてください。
 
 ## 問４
 
-前回のブラックジャックに続いて、今度はスロットマシーンをつくりました。`play_slot_machine()`を実行しみてください。
+前回のブラックジャックに続いて、今度はスロットマシーンをつくりました。`play_slot_machine()`を実行してみてください。出力された額のお金（ドル）がもらえます。
+
+```
+play_slot_machine()
+```
 
 大抵の場合は0$しかでませんが、運が良ければたくさんお金がでてきます。
 
-平均してこのスロットマシーンは一回あたり何ドル利益が出るのでしょうか？[モンテカルロ法](https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%83%86%E3%82%AB%E3%83%AB%E3%83%AD%E6%B3%95)を用いて計算してみましょう。
+平均してこのスロットマシーンは一回あたり何ドル利益が出るのでしょうか？このカジノでは期待値を公開していませんが、統計的な手法を用いて推定することができます。[モンテカルロ法](https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%83%86%E3%82%AB%E3%83%AB%E3%83%AD%E6%B3%95)を用いて計算してみましょう。
 
 [モンテカルロ法で円周率を求める](https://manabitimes.jp/math/1182)
 
