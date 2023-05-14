@@ -242,7 +242,10 @@ bool関数に整数型の値を渡すと、その値が0なら`False`、それ�
 例
 
 ```
-[['Paul', 'John', 'Ringo', 'George'], ['Jen', 'Jamie']]
+[
+    ['Paul', 'John', 'Ringo', 'George'], 
+    ['Jen', 'Jamie']
+]
 ```
 
 もっとも成績が悪かったチームのキャプテンの名前を返す関数`losing_team_captain`を作成してください。
