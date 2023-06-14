@@ -416,16 +416,30 @@ def multi_word_search(doc_list, keywords):
 # Working with External Libraries
 
 ## 問１
+After completing the exercises on lists and tuples, Jimmy noticed that, according to his `estimate_average_slot_payout` function, the slot machines at the Learn Python Casino are actually rigged *against* the house, and are profitable to play in the long run.
 
-前回のレッスンではスロットマシーンをモンテカルロ法を用いて分析してみました。
+Starting with $200 in his pocket, Jimmy has played the slots 500 times, recording his new balance in a list after each spin. He used Python's `matplotlib` library to make a graph of his balance over time:
 
-このスロットマシーンは長期的に見ると利益がでることが分かったので、今回は`matplotlib`を使用してグラフを描いてみようと思います。
 
-最初のコードセルを実行するとグラフが表示されます。このグラフは$200から始めて500回スロットを回した時の手持ち金の推移です。
+レッスン4の`List`では`estimate_average_slot_payout`関数を作成し、スロットマシーンをモンテカルロ法を用いて分析してみました。
 
-しかしこのグラフは未完成で、見る人の誤解を招きそうです。
+スロットマシーンは長期的に見ると利益がでることが分かったので、`matplotlib`を使ってグラフを作成してみます。
 
-与えられたグラフに以下の変更を加える`prettify_graph()`関数を完成させてよりよい図にしてください。
+Jimmyさんは$200から始めて500回スロットを回した時の手持ち金の推移をグラフにしました。
+
+```
+# Import the jimmy_slots submodule
+from learntools.python import jimmy_slots
+# Call the get_graph() function to get Jimmy's graph
+graph = jimmy_slots.get_graph()
+graph
+```
+
+グラフを見るとわかるように、Jimmyさんは最後の方で運が悪く手持ち金が減っています。
+
+Jimmyさんはこのグラフをツイートしようと思いました。しかしこのグラフのままでは見た人の誤解を招きそうです。
+
+引数`graph`で与えられたグラフに、以下の変更を加える`prettify_graph()`関数を完成させてよりよい図にしてください。
 
 - タイトルを"Results of 500 slot machine pulls"にする
 - y軸のスタートを0にする
@@ -440,7 +454,7 @@ def multi_word_search(doc_list, keywords):
 
 マリオカートで優勝するために、最も有効なアイテムは何でしょうか。
 
-過去のレースのデータセットを分析しています。
+過去のレースのデータセットを分析してみましょう。
 
 データセットは以下のように、リストの中に複数の辞書型の要素が含まれています。
 
@@ -454,20 +468,64 @@ def multi_word_search(doc_list, keywords):
 ]
 ```
 
-リスト内の要素がそれぞれ一人の走者を表し、`items`はその走者が獲得したアイテムのリスト、`finish`が順位を表します。
+リスト内の要素がそれぞれ一人の走者を表し、`items`はその走者が獲得したアイテムのリスト、`finish`がその走者の順位です。
 
-最初のコードセルで定義された`best_items()`関数は引数にこのようなリストを受け、一位の走者が獲得したアイテムをカウントして辞書型で返します。
+例えば、上のデータセットの一つ目の要素はPeachのデータで、Peachは3位で、獲得したアイテムは`green shell`, `banana`, `green shell`の3つです。
 
-上のデータを用いて`best_items()`関数を実行してみると正しい結果が得られます。次のコードセルを実行してみてください。
+He wrote the function below to take a list like this and return a dictionary mapping each item to how many times it was picked up by first-place finishers.
 
-しかし、過去のすべてのデータを用いて実行してみると`TypeError`の例外を出力してしまいました。
+best_items()`関数は引数に上記のようなリストを受け、一位の走者が獲得したアイテムをカウントして辞書型で返します
 
-この原因を調査して、コードが正常に動作するように修正してください。
+```
+def best_items(racers):
+    """Given a list of racer dictionaries, return a dictionary mapping items to the number
+    of times those items were picked up by racers who finished in first place.
+    """
+    winner_item_counts = {}
+    for i in range(len(racers)):
+        # The i'th racer dictionary
+        racer = racers[i]
+        # We're only interested in racers who finished in first
+        if racer['finish'] == 1:
+            for i in racer['items']:
+                # Add one to the count for this item (adding it to the dict if necessary)
+                if i not in winner_item_counts:
+                    winner_item_counts[i] = 0
+                winner_item_counts[i] += 1
+
+        # Data quality issues :/ Print a warning about racers with no name set. We'll take care of it later.
+        if racer['name'] is None:
+            print("WARNING: Encountered racer with unknown name on iteration {}/{} (racer = {})".format(
+                i+1, len(racers), racer['name'])
+                 )
+    return winner_item_counts
+```
+
+`best_items()`関数を実行してみると正しい結果が得られます。次のコードセルを実行してみてください。
+
+```
+sample = [
+    {'name': 'Peach', 'items': ['green shell', 'banana', 'green shell',], 'finish': 3},
+    {'name': 'Bowser', 'items': ['green shell',], 'finish': 1},
+    {'name': None, 'items': ['mushroom',], 'finish': 2},
+    {'name': 'Toad', 'items': ['green shell', 'mushroom'], 'finish': 1},
+]
+best_items(sample)
+```
+
+しかし、全データを用いて実行してみると`TypeError`の例外を出力してしまいました。
+
+この原因を調査して、下のコードが正常に動作するように修正してください。
 
 ## 問３
-前回トランプのブラックジャックについて扱いました。
 
-もし下の例のように、手札の合計を表す型`BlackjackHand`があり、比較演算子を使ってその大小を比較出来たら便利ですね。
+前回のレッスンでトランプのブラックジャックで勝つための戦略を考えました。
+
+ブラックジャックの手札を表す型(`BlackjackHand`)を作成したいとします。
+
+この型では、`>`や`<=`のような比較演算子をオーバーロードして、二つの手札の大小を比較できるようにしたいとします。
+
+もし下の例のように、手札の合計を比較演算子を使ってその大小を比較出来たら便利ですね。
 
 ```
 >>> hand1 = BlackjackHand(['K', 'A'])
