@@ -416,10 +416,6 @@ def multi_word_search(doc_list, keywords):
 # Working with External Libraries
 
 ## 問１
-After completing the exercises on lists and tuples, Jimmy noticed that, according to his `estimate_average_slot_payout` function, the slot machines at the Learn Python Casino are actually rigged *against* the house, and are profitable to play in the long run.
-
-Starting with $200 in his pocket, Jimmy has played the slots 500 times, recording his new balance in a list after each spin. He used Python's `matplotlib` library to make a graph of his balance over time:
-
 
 レッスン4の`List`では`estimate_average_slot_payout`関数を作成し、スロットマシーンをモンテカルロ法を用いて分析してみました。
 
@@ -471,8 +467,6 @@ Jimmyさんはこのグラフをツイートしようと思いました。しか
 リスト内の要素がそれぞれ一人の走者を表し、`items`はその走者が獲得したアイテムのリスト、`finish`がその走者の順位です。
 
 例えば、上のデータセットの一つ目の要素はPeachのデータで、Peachは3位で、獲得したアイテムは`green shell`, `banana`, `green shell`の3つです。
-
-He wrote the function below to take a list like this and return a dictionary mapping each item to how many times it was picked up by first-place finishers.
 
 best_items()`関数は引数に上記のようなリストを受け、一位の走者が獲得したアイテムをカウントして辞書型で返します
 
