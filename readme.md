@@ -4,30 +4,30 @@
 
 # 授業資料
 - [講師紹介](https://www.myuko.net)
-- 授業全体の解説
-    - pythonについて
-        - [pythonでできること](markdown/python.md)
-    - [Kaggle](https://www.kaggle.com/)について
-        - [設問の和訳](./questions/)
-    - [pythonの学習ができるオンラインコンテンツ](markdown/links.md)
+- [pythonでできること](markdown/python.md)
+- [Kaggleについて](https://www.kaggle.com/)
+- [設問の和訳](./questions/)
+- [pythonの学習ができるオンラインコンテンツ](markdown/links.md)
 
 # 設問の和訳
 
 Kaggleは世界最大のデータサイエンスコミュニティです。Kaggleではデータサイエンスや機械学習のスキルを競い合うコンペティションが開催されています。
 
-残念ながらKaggleは日本語に対応していません。そのため、日本語で設問の和訳を提供しています。
+残念ながらKaggleは日本語に対応していませんが、[ここで](./questions/)設問の和訳を提供しています。
 
 ## Intro to Programming - プログラミング導入
 
 - [Arithmetic and Variables - 算術演算子と変数](./questions/intro_to_programming/Arithmetic_and_Variables.md)
 
+- [Functions - 関数](./questions/intro_to_programming/Functions.md)
+
 - [Conditions and Conditional Statements - 比較演算子とIF文](./questions/intro_to_programming/Conditions_and_Conditional_Statements.md)
 
 - [Data Types - 型](./questions/intro_to_programming/Data_Types.md)
 
-- [Functions - 関数](./questions/intro_to_programming/Functions.md)
-
 - [Lists - リスト](./questions/intro_to_programming/Lists.md)
+
+## Python - Python入門
 
 内容は随時加筆訂正してきます。誤訳等ありましたらメール/口頭/PRなど頂けると助かります。
 
