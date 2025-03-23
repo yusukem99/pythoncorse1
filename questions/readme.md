@@ -6,12 +6,6 @@
 
 ご協力ありがとうございます。
 
-- [プログラミング導入](./intro_to_programming.md)
+- [プログラミング導入](./intro_to_programming/)
 
-- [Python](./python.md)
-
-- [panadas](./pandas.md)
-
-- [機械学習入門](./Intro_to_Machine_Learning.md)
-
-- [深層学習入門](./Intro_to_Deep_Learning.md)
+- [Python](./python/)
