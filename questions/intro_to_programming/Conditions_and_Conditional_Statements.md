@@ -1,5 +1,6 @@
 # Conditions and Conditional Statements - 条件とIF文
-## 問1
+
+# Question 1 - 問1
 
 あなたは学校の入試課で働いています。
 
