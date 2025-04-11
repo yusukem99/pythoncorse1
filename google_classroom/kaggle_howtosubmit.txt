@@ -1,0 +1,14 @@
+Kaggle Notebook 提出方法
+
+Notebookの編集が終わったら、画面上部のタブから「File」>「Save Version」を選択します。
+
+次に、画面右に現れるサイドメニューから「Save & Run All」を選択してください。「Version Name」は変更しなくてよいです。
+
+左下にポップアップ通知が出てくるので、処理が完了したら「・・・」のボタンを押して「Open In Viewer」を選択してください。
+
+遷移したページで右上の「Share」ボタンをクリック
+
+検索ボックスから「mitsuya3471_2025」を入力し、Permissonを「Can Edit」にし、画面右下の「Save」を押して完了です。
+
+※ 共有時は「Private」のままでOKです
+
