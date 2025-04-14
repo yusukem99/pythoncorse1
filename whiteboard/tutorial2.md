@@ -14,10 +14,9 @@ def add_three(input_var):
     return output_var
 ```
 
-input_var = 1 のとき、output_var = 4
-input_var = 2 のとき、output_var = 5
+input_var = 1 のとき、output_var = 4 また input_var = 2 のとき、output_var = 5
 
-def = 定義
+def = 定義(define)
 
 add_three = 関数名(function)
 
@@ -25,7 +24,7 @@ input_var = 引数(argument)
 
 output_var = 戻り値(return value)
 
-defの下の字下げ（インデント）の中身をbodyという
+defの下の字下げされた（インデント）中身をbodyという
 
 引数に特定の値を入れて実行することを「関数を呼び出す」（"call" a function）という
 
