@@ -69,4 +69,4 @@ print(newest_string)
 print(type(newest_string))
 ```
 
-"abc"*.3.14はどうなるでしょう？
+`"abc" * 3.14`はどうなるでしょう？
