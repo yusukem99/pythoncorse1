@@ -1,0 +1,10 @@
+第一回理解度確認
+
+理解度確認のための練習問題を実施します。以下の手順に従って練習問題を開いてください。
+
+1. Kaggleにログインしてください。
+2. 左のメニューから「+ Create」をクリックし、「New Notebook」を選択してください。
+3. ノートブックを開いたら、左上のタブから「File」>「Import Notebook」を選択してください。右側からメニューが出てくるので、タブの「GitHub」を選択してください。
+4. 検索ボックスが出てくるので、以下のURLを入力してください。コピーして貼り付けてください。
+https://github.com/yusukem99/pythoncorse1/blob/main/checknotes/check2.ipynb
+5. 「Import」をクリックしてください。
