@@ -1,4 +1,4 @@
-第二回理解度確認
+第三回理解度確認
 
 理解度確認のための練習問題を実施します。以下の手順に従って練習問題を開いてください。
 
@@ -10,7 +10,7 @@ https://colab.research.google.com/
 「ファイル」 > 「ノートブックを開く」 > 「GitHub」 を選択してください。
 
 3. 検索ボックスに、下のURLをコピー&ペーストし虫眼鏡のアイコンをクリックしてください。
-https://github.com/yusukem99/pythoncorse1/blob/main/checknotes/check2.ipynb
+https://github.com/yusukem99/pythoncorse1/blob/main/checknotes/check3.ipynb
 
 4. 自分のGoogleDriveにコピーする（重要）
 左上の「ドライブにコピー」をクリックすると、コピーされたノートブックが新しいタブで開かれます。
