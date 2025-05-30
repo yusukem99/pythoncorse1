@@ -52,7 +52,27 @@ planets[-2]  # 'Uranus'
 
 スライシングを使うと、リストの一部を取り出すことができます。たとえば、次のように書くと、最初の3つの惑星を取り出すことができます。
 
+太陽系のうち最初の3つの惑星を取り出すには、次のように書きます。
+
 ```python
+first_three_planets = planets[0:3]  # ['Mercury', 'Venus', 'Earth']
+```
+
+スライシングの始点と終点は、コロン`:`で区切ります。いずれも省略可能です。
+
+例えば次のように書くと始点の`0`を省略した場合と同じ結果になります。
+
+```python
+first_three_planets = planets[:3]  # ['Mercury', 'Venus', 'Earth']
+```
+
+地球より後の惑星を取り出すには、次のように書きます。終点を省略すると、リストの最後まで取り出すことになります。
+
+```python
+after_earth = planets[3:]  # ['Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
+```
+
+
 
 
 
