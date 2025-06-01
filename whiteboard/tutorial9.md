@@ -72,91 +72,144 @@ first_three_planets = planets[:3]  # ['Mercury', 'Venus', 'Earth']
 after_earth = planets[3:]  # ['Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
 ```
 
+# リストの要素の変更
 
+先ほどの`planets`の中の火星を`Malacandra`に変えてみましょう。
 
-
-
-
-
-
-
-
-
-真偽型（Booleans）
-
-Pythonは、真偽値（TrueまたはFalse）を表すために`bool`型を使用します。
-
-`bool`型は、条件式の結果や論理演算の結果を表すために使用されます。Pythonでは、`True`と`False`の2つの値しか持ちません。
-
-```python
-# 真偽値の例
-x = True
-print(x)  # True
-print(type(x))  # <class 'bool'>
+```
+planets[3] = 'Malacandra'
+planets
 ```
 
-実際には、`True`や`False`を直接コードに書くことは少なく、比較演算子を使って真偽値を得ることが多いです。以下に、いくつかの比較演算子を示します。
+惑星の名前が長いので、最初の三つの惑星の名前を３文字で表そうと思ったら、次のようにします。
 
-// テーブル
-| 演算子 | 説明                     | 演算子 | 説明                      |
-|--------|--------------------------|--------|---------------------------|
-| `a == b` | aがbに等しい             | `a != b` | aがbに等しくない          |
-| `a < b`  | aがbより小さい           | `a > b`  | aがbより大きい            |
-| `a <= b` | aがb以下                 | `a >= b` | aがb以上                  |
+```
+planets[:3] = ['Mur', 'Vee', 'Ur']
+print(planets)
+# もとに戻しておきます
+planets[:4] = ['Mercury', 'Venus', 'Earth', 'Mars',]
+```
 
+ pythonのリストに使える関数をいくつか紹介します。
 
-アメリカ合衆国の憲法では、大統領に立候補するためには35歳以上である必要があります。以下の関数は、与えられた年齢が35歳以上かどうかを判定します。
+ ```
+ # sorted関数を使うと、リストをソートできます。
+sorted(planets)
+>>>['Earth', 'Jupiter', 'Mars', 'Mercury', 'Neptune', 'Saturn', 'Uranus', 'Venus']
+```
+
+sum関数を使うと、リストの要素の合計を求めることができます。
 
 ```python
-def can_run_for_president(age):
-    """Can someone of the given age run for president in the US?"""
-    # The US Constitution says you must be at least 35 years old
-    return age >= 35
+primes = [2, 3, 5, 7]
+print(sum(primes))  # 17
+```
 
-print("Can a 19-year-old run for president?", can_run_for_president(19))
-print("Can a 45-year-old run for president?", can_run_for_president(45))
+max関数を使うと、リストの最大値を求めることができます。
+
+```python
+primes = [2, 3, 5, 7]
+print(max(primes))  # 7
+```
+
+ところで
+
+今まで`オブジェクト`という言葉を時々使ってきました。
+
+Pythonでは、すべての値は`オブジェクト`です。リストもオブジェクトの一種ですし、整数や文字列もオブジェクトです。
+
+オブジェクトは、いくつかの関数や変数をひとまとめにしたものです。`.`を使うと、オブジェクトの関数や変数にアクセスできます。
+
+例えば、実はpythonの整数オブジェクトは`imag`という変数を持っています。これは整数の虚数部を表します。
+
+```python
+
+x = 12
+# x is a real number, so its imaginary part is 0.
+print(x.imag)
+# Here's how to make a complex number, in case you've ever been curious:
+c = 12 + 3j
+print(c.imag)
+```
+
+また、整数は`bit_length`というメソッドを持っています。これは整数のビット長を返します。
+
+```python
+x = 12
+print(x.bit_length())  # 4
+```
+
+メソッドについても関数と同じように`help`関数を使って調べることができます。
+
+```python
+help(x.bit_length)
+
+Help on built-in function bit_length:
+
+bit_length() method of builtins.int instance
+    Number of bits necessary to represent self in binary.
+    
+    >>> bin(37)
+    '0b100101'
+    >>> (37).bit_length()
+    6
+```
+
+話をリストに戻しましょう。リストには、いくつかの便利なメソッドがあります。
+
+例えば、`append`メソッドを使うと、リストの末尾に要素を追加することができます。
+
+```python
+planets.append('Pluto')
+print(planets)  # ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto']
+```
+
+`pop`メソッドを使うと、リストの末尾の要素を取り出して削除することができます。
+
+```python
+last_planet = planets.pop()
+print(last_planet)  # 'Pluto'
+print(planets)  # ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
 ```
 
 
-比較演算子は、期待通りに動作することが多いですが、時には予想外の結果になることもあります。
+`index`メソッドを使うと、リストの中から特定の要素のインデックスを取得することができます。
 
 ```python
-# 3.0は3と等しい
-print(3.0 == 3)  # True
-# '3'は3と等しくない
-print('3' == 3)  # False
+index_of_earth = planets.index('Earth')
+print(index_of_earth)  # 2
 ```
 
-比較演算子は、算術演算子と組み合わせて使うこともできます。
-
-例えば、数が奇数かどうかを判定する関数は以下のように書けます。
+今、`planets`リストの中に`Earth`がありますが、それを確かめるために`in`演算子を使うこともできます。
 
 ```python
-def is_odd(n):
-    return (n % 2) == 1
-print("Is 100 odd?", is_odd(100))
-print("Is -1 odd?", is_odd(-1))
+is_earth_in_planets = 'Earth' in planets
+print(is_earth_in_planets)  # True
 ```
 
-`==`と`=`を混同しないように注意してください。
+```
+# Is Calbefraques a planet?
+is_calbefraques_a_planet = 'Calbefraques' in planets
+print(is_calbefraques_a_planet)  # False
+```
 
-`n == 2`はの値が2であるかを判定し`True`または`False`を返しますが、`n = 2`はnの値を2に設定することを意味します。 
+# タプル
+`Tuple`型は、リストと似ていますが、変更できない（immutable）点が異なります。
 
-複数の条件を組み合わせることもできます。
+```
+t = (1, 2, 3)
+```
 
-アメリカ合衆国の大統領に立候補するためには35歳以上である必要があるということでしたが、さらにアメリカ合衆国で生まれた人である必要もあります。
+```
+t = `1, 2, 3`  # タプルはカンマで区切られた値の並びで表現できます
+```
+タプルは、リストと同様に複数の値を一つの変数として扱うことができますが、要素を変更することはできません。
 
-以下の関数は、年齢と市民権の状態を考慮して、大統領に立候補できるかどうかを判定します。
+タプルを使うと便利な場面もあります。例えば、関数の戻り値として複数の値を返す場合にタプルを使うことができます。
 
-```python
-
-def can_run_for_president(age, is_natural_born_citizen):
-    """Can someone of the given age and citizenship status run for president in the US?"""
-    # The US Constitution says you must be a natural born citizen *and* at least 35 years old
-    return is_natural_born_citizen and (age >= 35)
-
-print(can_run_for_president(19, True))
-print(can_run_for_president(55, False))
-print(can_run_for_president(55, True))
-
+```
+a = 1
+b = 0
+a, b = b, a  # タプルを使ってaとbの値を入れ替えることができます
+print(a, b)  # 0 1
 ```
