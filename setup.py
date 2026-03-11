@@ -10,6 +10,6 @@ setup(
         "numpy",
         "matplotlib",
         "seaborn",
-        "sklearn",
+        "scikit-learn",
     ],
 )
