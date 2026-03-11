@@ -26,8 +26,8 @@ def record(method):
 
 class ProblemView:
 
-    _not_attempted_msg = ("When you've updated the starter code, `check()` will"
-            " tell you whether your code is correct."
+    _not_attempted_msg = ("コードを書き換えた後、 `check()` を実行すると"
+            " 正解かどうかが判定されます。"
     )
 
     def __init__(self, problem:Problem, globals_):
@@ -108,7 +108,7 @@ class ProblemView:
                     )
             return TestFailure(str(e))
         except Uncheckable as e:
-            msg = str(e) or 'Sorry, no auto-checking available for this question.'
+            msg = str(e) or 'すみません、この問題には自動採点が用意されていません。'
             self._track_check(tracking.OutcomeType.EXCEPTION,
                 failureMessage=msg,
                 exceptionClass='Uncheckable',
@@ -130,13 +130,12 @@ class ProblemView:
             return self.globals.lookup(names)
         elif len(missing) == len(names):
             # Hm, maybe RichText objects should be raisable? Or is that too much?
-            raise NotAttempted("Remember, you must create the following variable{}: {}"\
-                    .format('s' if len(missing) > 1 else '',
-                        ', '.join('`{}`'.format(v) for v in missing)
+            raise NotAttempted("以下の変数を作成（定義）する必要があります: {}"\
+                    .format(', '.join('`{}`'.format(v) for v in missing)
                         )
                     )
         else:
-            raise Incorrect("You still need to define the following variables: {}".format(
+            raise Incorrect("以下のファイル/変数をまだ定義する必要があります: {}".format(
                     ', '.join('`{}`'.format(v) for v in missing)
                     ))
 
@@ -146,7 +145,7 @@ class ProblemView:
     def hint(self, n=1):
         hints = self.problem.hints
         if not hints:
-            msg = 'Sorry, no hints available for this question.'
+            msg = 'すみません、この問題にはヒントが用意されていません。'
             self._track_event(tracking.InteractionType.HINT, failureMessage=msg)
             return RichText(msg, color=colors.WARN)
         self._track_event(tracking.InteractionType.HINT)

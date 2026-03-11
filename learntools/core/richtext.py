@@ -54,30 +54,31 @@ class Hint(PrefixedRichText):
         if not last:
             # TODO: Would be nice to be able to reference the actual name
             # associated with the ProblemView, e.g. `q2.hint(2)`
-            coda = '\n(For another hint, call `.hint({})`)'.format(n+1)
+            coda = '\n(次のヒントを確認するには `.hint({})` を実行してください)'.format(n+1)
             txt += coda
         super().__init__(txt)
 
     @property
     def label(self):
         if self.is_multi:
-            return 'Hint {}'.format(self.n)
-        return 'Hint'
+            return 'ヒント {}'.format(self.n)
+        return 'ヒント'
 
 class Correct(PrefixedRichText):
     @property
     def _label(self):
-        return self.kwargs.get('_congrats', 'Correct')
+        return self.kwargs.get('_congrats', '正解！')
     label_color = colors.CORRECT
 
 class Solution(PrefixedRichText):
+    _label = '解答'
     label_color = colors.SOLUTION
 
 class CodeSolution(Solution):
     """A solution consisting entirely of Python code. We wrap this in a
     syntax-highlighted code block.
     """
-    _label = 'Solution'
+    _label = '解答'
 
     def __init__(self, *lines):
         """As a convenience, may pass in one string per line of code, rather than
@@ -103,8 +104,8 @@ class CodeSolution(Solution):
 
 class TestFailure(PrefixedRichText):
     label_color = colors.INCORRECT
-    _label = 'Incorrect'
+    _label = '不正解'
 
 class ProblemStatement(PrefixedRichText):
     label_color = colors.INFO
-    _label = 'Check'
+    _label = 'チェック'
