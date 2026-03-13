@@ -24,8 +24,8 @@ class GetExpectedCost(FunctionProblem):
         ((3, 3), 200000),
         ((3, 4), 210000),
     ]
-    _hint = ("The value should be the base cost (`80000`), plus the total cost of the bedrooms (`30000 * beds`), "
-             "plus the total cost of the bathrooms (`10000 * baths`).")
+    _hint = ("この値は、基本価格（`80000`）に、ベッドルームの合計価格（`30000 * beds`）と"
+             "バスルームの合計価格（`10000 * baths`）を足したものになります。")
     _solution = CS(
 """
 def get_expected_cost(beds, baths):
@@ -36,10 +36,10 @@ def get_expected_cost(beds, baths):
 class RunGetExpectedCost(EqualityCheckProblem):
     _vars = ['option_one', 'option_two', 'option_three', 'option_four']
     _expected = [get_expected_cost(2, 3), get_expected_cost(3, 2), get_expected_cost(3, 3), get_expected_cost(3, 4)]
-    _hint = ("If `option_five` needed to have the expected cost of a house with five "
-             "bedrooms and three bathrooms, we would write `option_five = get_expected_cost(5, 3)`.")
+    _hint = ("もし `option_five` に5つのベッドルームと3つのバスルームを持つ家の"
+             "予想価格を設定する必要がある場合は、`option_five = get_expected_cost(5, 3)` と書きます。")
     _solution = CS(
-"""# Use the get_expected_cost function to fill in each value
+"""# get_expected_cost 関数を使用して、それぞれの値を埋めてください
 option_one = get_expected_cost(2, 3)
 option_two = get_expected_cost(3, 2)
 option_three = get_expected_cost(3, 3)
@@ -53,9 +53,9 @@ class GetCostPaint(FunctionProblem):
         ((400, 400, 400, 10), 20.0),
         ((400, 500, 300, 16), 48.0),
     ]
-    _hint = ("Begin by calculating the total number of square feet that need to be painted. "
-    "Then, based on that, figure out how many gallons you need.  Then, once you know how many "
-    "gallons you need, you can calculate the total cost of the project.")
+    _hint = ("まず、塗装が必要な壁と天井の合計面積（平方フィート）を計算します。"
+    "次に、それに基づいて必要なペンキのガロン数を導き出します。"
+    "必要なガロン数がわかれば、プロジェクトの総コストを計算できます。")
     _solution = CS(
 """
 def get_cost(sqft_walls, sqft_ceiling, sqft_per_gallon, cost_per_gallon):
@@ -68,11 +68,11 @@ def get_cost(sqft_walls, sqft_ceiling, sqft_per_gallon, cost_per_gallon):
 class GetCostPaintExample(EqualityCheckProblem):
     _var = 'project_cost'
     _expected = get_cost(432, 144, 400, 15)
-    _hint = ("If we needed to instead calculate the cost of applying one coat of paint to a room with "
-             "800 square feet of walls and 160 square feet of ceiling, and one gallon of paint covered "
-             "300 square feet and cost $10, we would set `project_cost = get_cost(800, 160, 300, 10)`.")
+    _hint = ("もし代わりに、800平方フィートの壁と160平方フィートの天井を持つ部屋に"
+             "ペンキを1度塗りするコストを計算する必要があり、1ガロンのペンキが300平方フィートをカバーし"
+             "10ドルかかる場合、`project_cost = get_cost(800, 160, 300, 10)` と設定します。")
     _solution = CS(
-"""# Set the project_cost variable to the cost of the project
+"""# project_cost 変数にプロジェクトのコストを設定してください
 project_cost = get_cost(432, 144, 400, 15) 
 """)
     
@@ -83,9 +83,9 @@ class NoMoreFractions(FunctionProblem):
         ((400, 500, 400, 10), 30),
         ((400, 900, 300, 16), 80),
     ]
-    _hint = ("Begin with the `get_cost()` function as a starting point.  The only change you need to "
-             "make is to add `math.ceil()` to round up the number of gallons that need to be purchased. "
-             "Can you figure out where to add it to the function?")
+    _hint = ("まずは `get_cost()` 関数を出発点として使用します。唯一変更する必要があるのは、"
+             "購入すべきガロン数を切り上げるための `math.ceil()` を追加することです。"
+             "関数のどこに追加すればよいかわかりますか？")
     _solution = CS(
 """def get_actual_cost(sqft_walls, sqft_ceiling, sqft_per_gallon, cost_per_gallon):
     total_sqft = sqft_walls + sqft_ceiling
