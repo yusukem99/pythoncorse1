@@ -6,6 +6,12 @@ class PlaceholderValue(object):
     def __eq__(self, other):
         return isinstance(other, PlaceholderValue)
 
+    def __repr__(self):
+        return "未回答(____)"
+
+    def __str__(self):
+        return "未回答(____)"
+
     def _repr_markdown_(self):
         """This returns the empty string. Some questions' starter code cell will look like:
             foo = ____

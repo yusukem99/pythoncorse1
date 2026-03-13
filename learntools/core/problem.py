@@ -116,8 +116,8 @@ class CodingProblem(Problem):
         # TODO: copy-paste from EqualityCheckProblem.check_whether_attempted
         varnames = self.injectable_vars
         def _raise_not_attempted():
-            raise NotAttempted("You need to update the code that creates"
-                    " variable{} {}".format('s' if len(varnames) > 1 else '',
+            raise NotAttempted("変数{} {}を作成するコードを更新する必要があります。".format(
+                        's' if len(varnames) > 1 else '',
                         ', '.join(map(utils.backtickify, varnames))))
         # First, check whether any vars have placeholder values
         for (var, val) in zip(varnames, args):
@@ -165,8 +165,8 @@ class EqualityCheckProblem(CodingProblem):
     def check_whether_attempted(self, *args):
         varnames = self.injectable_vars
         def _raise_not_attempted():
-            raise NotAttempted("You need to update the code that creates"
-                    " variable{} {}".format('s' if len(varnames) > 1 else '',
+            raise NotAttempted("変数{} {}を作成するコードを更新する必要があります。".format(
+                        's' if len(varnames) > 1 else '',
                         ', '.join(map(utils.backtickify, varnames))))
         # First, check whether any vars have placeholder values
         for (var, val) in zip(varnames, args):
@@ -239,12 +239,12 @@ class FunctionProblem(CodingProblem):
                 actual = fn(*args)
             except Exception as e:
                 raise UserlandExceptionIncorrect(e, orig_args)
-            assert not (actual is None and expected is not None), ("Got a return value of `None`"
-                    " given {}, but expected a value of type `{}`. (Did you forget a `return` statement?)"
+            assert not (actual is None and expected is not None), ("{} を入力したときに戻り値が `None` でした。"
+                    " `{}` 型の値を返す必要があります。（`return` 文を忘れていませんか？）"
                     ).format(utils.format_args(fn, orig_args), type(expected).__name__)
-            assert actual == expected, ("Expected return value of `{}` given {},"
-                    " but got `{}` instead.").format(
-                            repr(expected), utils.format_args(fn, orig_args), repr(actual))
+            assert actual == expected, ("{} を入力した際、本来は `{}` が返されるはずですが、"
+                    " 実際には `{}` が返されました。").format(
+                            utils.format_args(fn, orig_args), repr(expected), repr(actual))
 
 
 __all__ = ['Problem', 'EqualityCheckProblem', 'FunctionProblem',

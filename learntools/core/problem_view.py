@@ -26,8 +26,8 @@ def record(method):
 
 class ProblemView:
 
-    _not_attempted_msg = ("コードを書き換えた後、 `check()` を実行すると"
-            " 正解かどうかが判定されます。"
+    _not_attempted_msg = ("回答を記入した後に `check()` を実行すると、"
+            "正解かどうかが判定されます。"
     )
 
     def __init__(self, problem:Problem, globals_):
@@ -151,7 +151,7 @@ class ProblemView:
         self._track_event(tracking.InteractionType.HINT)
         # TODO: maybe wrap these kinds of user errors to present them in a nicer way?
         # (e.g. LearnUserError, LearnUsageError)
-        assert n <= len(hints), "No further hints available!"
+        assert n <= len(hints), "これ以上のヒントはありません。"
         hint = hints[n-1]
         assert isinstance(hint, str)
         return Hint(hint, n, last=(n == len(hints)))
@@ -167,7 +167,7 @@ class ProblemView:
 
     def _assert_last_outcome(self, outcome):
         self.check()
-        assert self._last_outcome == outcome, ("Expected last outcome to be {}, but was {}".format(
+        assert self._last_outcome == outcome, ("最後の判定結果が {} であることを期待しましたが、実際には {} でした".format(
             outcome, self._last_outcome))
 
     def assert_check_unattempted(self):

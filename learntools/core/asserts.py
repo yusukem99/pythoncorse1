@@ -30,7 +30,7 @@ def name_or_var(assert_fn):
 
     @name_or_var
     def assert_negative(actual, name):
-        assert actual < 0, "{} should have been negative, but was actually {}".format(name, actual)
+        assert actual < 0, "{} は負の数である必要がありますが、実際には {} でした".format(name, actual)
 
     # The following are all valid calls
     assert_negative(x, "Bank balance")
@@ -42,7 +42,7 @@ def name_or_var(assert_fn):
         var = kwargs.pop('var', None)
         if var:
             if 'name' in kwargs:
-                logging.warn("Function {} received values for keyword args name *and* var. Overwriting original name kwarg.".format(
+                logging.warn("関数 {} がキーワード引数 name と var の両方を受け取りました。元の name 引数を上書きします。".format(
                     assert_fn.__name__))
             kwargs['name'] = '`{}`'.format(var)
         return assert_fn(*args, **kwargs)
@@ -60,7 +60,7 @@ def assert_equal(actual, expected, name, failure_factory=None):
     # We default to == comparison, but have special cases for certain data types.
     if isinstance(expected, float):
         assert isinstance(actual, numbers.Number), \
-            "Expected {} to be a number, but had value `{!r}` (type = `{}`)".format(
+            "{} は数値である必要がありますが、実際の値は `{!r}`（型 = `{}`）でした".format(
                 name, actual, type(actual).__name__)
         check = math.isclose(actual, expected, rel_tol=1e-06)
     elif isinstance(expected, pd.DataFrame):
@@ -78,7 +78,7 @@ def assert_equal(actual, expected, name, failure_factory=None):
         # failure message. Currently only used in the Python ex1 favourite color question.
         _failure_message = failure_factory(name, actual, expected)
     else:
-        _failure_message = "Incorrect value for {}: `{}`".format(
+        _failure_message = "{} の値が正しくありません: `{}`".format(
                 name, repr(actual))
     assert check, _failure_message
 
@@ -88,21 +88,21 @@ def assert_has_columns(df, cols, name="dataframe", strict=False):
     If strict is True, then assert it has *only* those columns.
     """
     for col in cols:
-        assert col in df.columns, "Expected {} to have column `{}`".format(
+        assert col in df.columns, "{} にカラム `{}` が含まれている必要があります".format(
                 name, col
                 )
     if strict:
         for col in df.columns:
-            msg = "Unexpected column in {}: `{}`".format(name, col)
+            msg = "{} に予期しないカラムが含まれています: `{}`".format(name, col)
             assert col in cols, msg
 
 @name_or_var
 def assert_isinstance(cls, actual, name):
-    assert isinstance(actual, cls), "Expected {} to have type `{!r}` but had type `{!r}`".format(name, cls, type(actual))
+    assert isinstance(actual, cls), "{} の型は `{!r}` である必要がありますが、実際には `{!r}` 型でした".format(name, cls, type(actual))
 
 @name_or_var
 def assert_is_one_of(actual, options, name):
-    msg = "Incorrect value for {}: `{!r}`".format(name, actual)
+    msg = "{} の値が正しくありません: `{!r}`".format(name, actual)
     assert actual in options, msg
 
 @name_or_var
@@ -112,23 +112,23 @@ def assert_len(thing, exp_len, name):
     PRECONDITION: the thing implements __len__
     """
     actual = len(thing)
-    assert actual == exp_len, "Expected {} to have length {}, but was {}".format(
+    assert actual == exp_len, "{} の長さは {} である必要がありますが、実際には {} でした".format(
             name, exp_len, actual,
             )
 
 def assert_file_exists(path):
     if '/' in path:
-        pp = 'at path'
+        pp = '（パス: `{}`）'
     else:
-        pp = 'with name'
-    msg = "Expected file to exist {} `{}`".format(pp, path)
+        pp = '（ファイル名: `{}`）'
+    msg = "ファイル {} が存在しません".format(pp.format(path))
     assert os.path.exists(path), msg
-    assert os.path.isfile(path), "Expected `{}` to be a file".format(path)
+    assert os.path.isfile(path), "`{}` はファイルである必要があります".format(path)
 
 @name_or_var
 def assert_df_equals(actual, exp, name="dataframe"):
     assert_isinstance(pd.DataFrame, actual, name)
-    assert len(actual) == len(exp), "Expected {} to have length {} but was actually {}".format(
+    assert len(actual) == len(exp), "{} の長さは {} である必要がありますが、実際には {} でした".format(
         name, len(exp), len(actual))
     # Only verify that the first n records match - I guess this could be slow if 
     # our dataframes have hundreds of thousands of rows. This *could* bite us, though
@@ -147,12 +147,12 @@ def assert_df_equals(actual, exp, name="dataframe"):
     # Check dtype match per column. (This is something that df.equals cares about,
     # though in some cases that might be stricter than what we want. e.g. we might 
     # not care if a column has values [1, 2, 3] in expected and [1., 2., 3.] in actual)
-    assert False, "Incorrect value for {}".format(name)
+    assert False, "{} の値が正しくありません".format(name)
 
 @name_or_var
 def assert_series_equals(actual, exp, name="series"):
     assert_isinstance(pd.Series, actual, name=name)
-    assert len(actual) == len(exp), "Expected {} to have length {} but was actually {}".format(
+    assert len(actual) == len(exp), "{} の長さは {} である必要がありますが、実際には {} でした".format(
         name, len(exp), len(actual))
     lim = 100
     actual_sub = actual.head(lim)
@@ -161,7 +161,7 @@ def assert_series_equals(actual, exp, name="series"):
     if eq:
         return
     # TODO: More checks
-    assert False, "Incorrect value for {}".format(name)
+    assert False, "{} の値が正しくありません".format(name)
 
 # For star import purposes, export only names that begin with assert (i.e. our helper fns)
 __all__ = [name for name in dir() if name.startswith('assert')]
