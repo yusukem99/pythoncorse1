@@ -5,38 +5,23 @@
 # 授業資料
 - [講師紹介](https://www.myuko.net)
 - [pythonでできること](markdown/python.md)
-- [Kaggleについて](https://www.kaggle.com/)
-- [設問の和訳](./questions/)
-- [pythonの学習ができるオンラインコンテンツ](markdown/links.md)
 
-# 設問の和訳
 
-Kaggleは世界最大のデータサイエンスコミュニティです。Kaggleではデータサイエンスや機械学習のスキルを競い合うコンペティションが開催されています。
+# 教材ノートブック（Google Colab）
 
-残念ながらKaggleは日本語に対応していませんが、[ここで](./questions/)設問の和訳を提供しています。
+本コースの教材はすべて日本語化されており、Google Colab上で直接開いて学習できます。リンクをクリックするだけですぐに演習を開始できます。
 
 ## Intro to Programming - プログラミング導入
 
-- [Arithmetic and Variables - 算術演算子と変数](./questions/intro_to_programming/Arithmetic_and_Variables.md)
+| 章 | 解説 | 演習 |
+|---|---|---|
+| 第1章: 算術演算子と変数 | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/tutorials/arithmetic-and-variables.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/exercises/exercise-arithmetic-and-variables.ipynb) |
+| 第2章: 関数 | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/tutorials/functions.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/exercises/exercise-functions.ipynb) |
+| 第3章: データ型 | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/tutorials/data-types.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/exercises/exercise-data-types.ipynb) |
+| 第4章: 条件分岐 | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/tutorials/conditions-and-conditional-statements.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/exercises/exercise-conditions-and-conditional-statements.ipynb) |
+| 第5章: リスト入門 | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/tutorials/intro-to-lists.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/exercises/exercise-intro-to-lists.ipynb) |
 
-- [Functions - 関数](./questions/intro_to_programming/Functions.md)
-
-- [Conditions and Conditional Statements - 比較演算子とIF文](./questions/intro_to_programming/Conditions_and_Conditional_Statements.md)
-
-- [Data Types - 型](./questions/intro_to_programming/Data_Types.md)
-
-- [Lists - リスト](./questions/intro_to_programming/Lists.md)
-
-## Python - Python入門
-
-内容は随時加筆訂正してきます。誤訳等ありましたらメール/口頭/PRなど頂けると助かります。
-
-ご協力ありがとうございます。
-
-- [プログラミング導入](./questions/readme.md)
-
-## 設問の和訳
-- [こちら](./questions/)から設問の和訳を確認できます。
+# シラバス
 
 ## 第１回
 - プログラミング導入 [Intro to Programming]
