@@ -5,17 +5,15 @@ def get_expected_cost(beds, baths, has_basement):
     return value
 
 class FloatToInt(ThoughtExperiment):
-    _solution = ("Negative floats are always rounded UP to the closest integer (for instance, "
-                 "both -1.1 and -1.9 are rounded up to -1). Positive floats are always rounded "
-                 "DOWN to the closest integer (for instance, 2.1 and 2.9 are rounded down to 2).")
+    _solution = ("負の小数は常に最も近い整数に切り上げられます（例えば、"
+                 "-1.1 も -1.9 も -1 に切り上げられます）。正の小数は常に最も近い整数に"
+                 "切り捨てられます（例えば、2.1 も 2.9 も 2 に切り捨てられます）。")
     
 class MultiplyBooleans(ThoughtExperiment):
-    _solution = ("When you multiple an integer or float by a boolean with value `True`, it just returns "
-                 "that same integer or float (and is equivalent to multiplying by 1).  If you "
-                 "multiply an integer or float by a boolean with value `False`, it always returns 0.  This "
-                 "is true for both positive and negative numbers.  If you multiply a string by a boolean with "
-                 "value `True`, it just returns that same string.  And if you multiply a string by a boolean "
-                 "with value `False`, it returns an empty string (or a string with length zero).")
+    _solution = ("整数や小数に `True` を掛けると、その数がそのまま返されます（1を掛けるのと同じです）。"
+                 "`False` を掛けると、常に 0 が返されます。これは正の数でも負の数でも同じです。"
+                 "文字列に `True` を掛けると、その文字列がそのまま返されます。"
+                 "`False` を掛けると、空の文字列（長さゼロの文字列）が返されます。")
     
 class EstimateHouseValueBool(FunctionProblem):
     _var = 'get_expected_cost'
@@ -25,9 +23,9 @@ class EstimateHouseValueBool(FunctionProblem):
         ((3, 2, True), 230000),
         ((4, 5, False), 250000),
     ]
-    _hint = ("The variable `has_basement` is either `True` or `False`.  What happens when you "
-             "multiply it by 40000 (the value of a basement)?  Refer to the previous question "
-             "if you are unsure.")
+    _hint = ("変数 `has_basement` は `True` か `False` のどちらかです。"
+             "これに 40000（地下室の価値）を掛けるとどうなるでしょうか？ "
+             "分からない場合は前の問題を参照してください。")
     _solution = CS(
 """def get_expected_cost(beds, baths, has_basement):
     value = 80000 + 30000 * beds + 10000 * baths + 40000 * has_basement
@@ -35,7 +33,7 @@ class EstimateHouseValueBool(FunctionProblem):
 """)
 
 class AddingBooleans(ThoughtExperiment):
-    _solution = "When you add booleans, adding `False` is equivalent to adding 0, and adding `True` is equivalent to adding 1."
+    _solution = "ブール値を足し算すると、`False` を足すのは 0 を足すのと同じで、`True` を足すのは 1 を足すのと同じです。"
     
 class CustomEngravings(FunctionProblem):
     _var = 'cost_of_project'
@@ -45,9 +43,9 @@ class CustomEngravings(FunctionProblem):
         (("Adrian", True), 160),
         (("Ana", False), 71),
     ]
-    _hint = ("There are two options - either the project uses solid gold or does not.  With this in mind, you can structure your solution like this: `cost = solid_gold * ____ + (not solid_gold) * ____`.  You need to figure out how to fill in the blanks. Also, remember that:\n"
-             "- If `solid_gold = True`, then `(not solid_gold) = False`, and if `solid_gold = False`, then `(not solid_gold) = True`.\n"
-             "- Multiplying an integer by `True` is equivalent to multiplying it by 1, and multiplying an integer by `False` is equivalent to multiplying it by 0.")
+    _hint = ("選択肢は2つです。プロジェクトが純金を使うか使わないかです。これを踏まえて、解答を次のように構成できます: `cost = solid_gold * ____ + (not solid_gold) * ____`。空欄を埋める方法を考えてください。また、以下を思い出してください:\n"
+             "- `solid_gold = True` の場合、`(not solid_gold) = False` であり、`solid_gold = False` の場合、`(not solid_gold) = True` です。\n"
+             "- 整数に `True` を掛けるのは 1 を掛けるのと同じで、`False` を掛けるのは 0 を掛けるのと同じです。")
     _solution = CS(
 """def cost_of_project(engraving, solid_gold):
     cost = solid_gold * (100 + 10 * len(engraving)) + (not solid_gold) * (50 + 7 * len(engraving))

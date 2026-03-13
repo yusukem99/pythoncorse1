@@ -40,9 +40,9 @@ def get_phone_bill(gb):
 class GetGrade(FunctionProblem):
     _var = 'get_grade'
     _test_cases = [(i, get_grade(i)) for i in range(0,101)]
-    _hint = ('`"A"` should only be returned if `score >= 90`.  Otherwise, if the score is between 80 and 89 (inclusive), or '
-             '70 and 79 (inclusive), 60 and 69 (inclusive), or less than 60, a different score should be returned.  Make '
-             'sure that your function always returns one of: `"A"`, `"B"`, `"C"`, `"D"`, or `"F"`.')
+    _hint = ('`"A"` は `score >= 90` の場合のみ返すべきです。それ以外は、スコアが 80〜89（含む）、'
+             '70〜79（含む）、60〜69（含む）、または 60 未満の場合にそれぞれ異なる成績を返します。'
+             '関数が必ず `"A"`, `"B"`, `"C"`, `"D"`, `"F"` のいずれかを返すようにしてください。')
     _solution = CS(
 """def get_grade(score):
     if score >= 90:
@@ -66,9 +66,9 @@ class CostProjectPartDeux(FunctionProblem):
         (("Adrian", True), 160),
         (("Ana", False), 71),
     ]
-    _hint = ("If `solid_gold = True`, then the cost of the ring is \\$100 (base cost), plus \\$10 times the length of the "
-             "engraving.  You can get the length of the engraving with `len(engraving)`.  Otherwise, if "
-             "`solid_gold = False`, then the cost of the ring is \\$50 (base cost), plus \\$7 times the length of the engraving.")
+    _hint = ("`solid_gold = True` の場合、指輪のコストは \\$100（基本料金）に、"
+             "刻印の長さ × \\$10 を加えたものです。刻印の長さは `len(engraving)` で取得できます。"
+             "`solid_gold = False` の場合は、\\$50（基本料金）に、刻印の長さ × \\$7 を加えたものです。")
     _solution = CS(
 """# option 1
 def cost_of_project(engraving, solid_gold):
@@ -92,17 +92,17 @@ class GetWaterBill(FunctionProblem):
     _var = 'get_water_bill'
     _test_cases = [(1000*i, get_water_bill(1000*i)) for i in range (0, 41)]
     _hint = """
-Your solution should look something like:
+解答は次のような形になります:
 ```python
 def get_water_bill(num_gallons):
     if num_gallons <= 8000:
-        bill = ____ 
+        bill = ____
     elif num_gallons <= 22000:
-        bill = ____ 
+        bill = ____
     elif num_gallons <= 30000:
         bill = ____
     else:
-        bill = ____ 
+        bill = ____
     return bill
 ```
 """
@@ -123,7 +123,7 @@ class GetPhoneBill(FunctionProblem):
     _var = 'get_phone_bill'
     _test_cases = [(5 + .5*i, get_phone_bill(5 + .5*i)) for i in range (0, 35)]
     _hint = """
-Your solution should look something like:
+解答は次のような形になります:
 ```python
 def get_phone_bill(gb):
     if gb <= 15:
@@ -143,7 +143,7 @@ def get_phone_bill(gb):
 """)
 
 class GetLabels(CodingProblem):
-    _congrats = "Once you have determined the labels for all of the food items, you're ready to move on to the next lesson!"
+    _congrats = "すべての食品のラベルを決定できたら、次のレッスンに進む準備は完了です！"
     _correct_message = ""
     def check(self):
         pass
