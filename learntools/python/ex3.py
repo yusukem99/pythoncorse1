@@ -30,10 +30,11 @@ class SignFunctionProblem(FunctionProblem):
     else:
         return 0""")
 
+
 # TODO: could try to intercept stdout to actually check this I guess?
 class PluralizationProblem(ThoughtExperiment):
 
-    _solution = """A straightforward (and totally fine) solution is to replace the original `print` call with:
+    _solution = """分かりやすい（そして全く問題ない）解法は、元の `print` の呼び出しを次のように置き換えることです：
 
 ```python
 if total_candies == 1:
@@ -42,7 +43,7 @@ else:
     print("Splitting", total_candies, "candies")
 ```
 
-Here's a slightly more succinct solution using a conditional expression:
+条件式を使ったもう少し簡潔な解法もあります：
 
 ```python
 print("Splitting", total_candies, "candy" if total_candies == 1 else "candies")
@@ -56,12 +57,11 @@ class WeatherDebug(EqualityCheckProblem):
     # doesn't work here...
     #_default_values = [True, 0.0, True, True]
 
-    _hint = ("Take a look at how we fixed our original expression in the main"
-            " lesson. We added parentheses around certain subexpressions. "
-            "The bug in this code is caused by Python evaluating certain operations "
-            "in the \"wrong\" order.")
+    _hint = ("メインレッスンで元の式をどう修正したかを見直してみましょう。"
+            "特定の部分式に括弧を追加しましたね。"
+            "このコードのバグは、Pythonが特定の演算を「間違った」順序で評価することが原因です。")
 
-    _solution = """One example of a failing test case is:
+    _solution = """失敗するテストケースの一例です：
 
 ```python
 have_umbrella = False
@@ -70,15 +70,15 @@ have_hood = False
 is_workday = False
 ```
 
-Clearly we're prepared for the weather in this case. It's not raining. Not only that, it's not a workday, so we don't even need to leave the house! But our function will return False on these inputs.
+この場合、明らかに天気に対する準備はできています。雨は降っていません。それだけでなく、仕事の日でもないので、家を出る必要すらありません！しかし、この関数はこれらの入力に対して False を返してしまいます。
 
-The key problem is that Python implictly parenthesizes the last part as:
+重要な問題は、Pythonが最後の部分を暗黙的に次のように括弧をつけることです：
 
 ```python
 (not (rain_level > 0)) and is_workday
 ```
 
-Whereas what we were trying to express would look more like:
+一方、私たちが表現しようとしていたのは次のような意味です：
 
 ```python
 not (rain_level > 0 and is_workday)
@@ -98,9 +98,9 @@ not (rain_level > 0 and is_workday)
     def check(self, *args):
         expected = self.canonical_prepared(*args)
         actual = self.ill_prepared(*args)
-        assert actual != expected, ("Given {}, `prepared_for_weather` returned"
-                " `{}`. But I think that's correct. (We want inputs that lead to"
-                " an incorrect result from `prepared_for_weather`.)").format(
+        assert actual != expected, ("{} を入力した場合、`prepared_for_weather` は"
+                " `{}` を返しました。しかし、それは正しい結果だと思います。"
+                "（`prepared_for_weather` が間違った結果を返すような入力を見つけてください。）").format(
                         format_args(self.ill_prepared, args),
                         repr(actual),
                         )
@@ -119,14 +119,14 @@ class ConciseIsNegative(FunctionProblem):
             (-100, True),
     ]
 
-    _hint = ("If the value of the expression `number < 0` is `True`, then we return"
-            " `True`. If it's `False`, then we return `False`...")
+    _hint = ("式 `number < 0` の値が `True` なら `True` を返し、"
+            "`False` なら `False` を返すということは...")
     _solution = CS("return number < 0")
 
 class AllToppings(FunctionProblem):
     _var = 'wants_all_toppings'
 
-    _hint = "You'll need to use the `and` operator."
+    _hint = "`and` 演算子を使う必要があります。"
     _solution = CS("return ketchup and mustard and onion")
 
     _test_cases = [
@@ -140,14 +140,14 @@ class AllToppings(FunctionProblem):
 class PlainDog(FunctionProblem):
     _var = 'wants_plain_hotdog'
 
-    _hint = "You'll need to use the `not` operator."
+    _hint = "`not` 演算子を使う必要があります。"
     _solution = (
-"""One solution looks like:
+"""一つの解法は次のとおりです：
 ```python
 return not ketchup and not mustard and not onion
 ```
 
-We can also ["factor out" the nots](https://en.wikipedia.org/wiki/De_Morgan%27s_laws) to get:
+[ド・モルガンの法則](https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%BB%E3%83%A2%E3%83%AB%E3%82%AC%E3%83%B3%E3%81%AE%E6%B3%95%E5%89%87)を使って not を「くくり出す」こともできます：
 
 ```python
 return not (ketchup or mustard or onion)
@@ -165,8 +165,8 @@ return not (ketchup or mustard or onion)
 class OneSauce(FunctionProblem):
     _var = 'exactly_one_sauce'
 
-    _hint = ("There are exactly two ways to set ketchup and mustard to make this"
-            " true. What are they?"
+    _hint = ("これを true にするために ketchup と mustard を設定する方法は"
+            "ちょうど2通りあります。それは何でしょうか？"
             )
     _solution = CS("return (ketchup and not mustard) or (mustard and not ketchup)")
 
@@ -184,16 +184,16 @@ HotDogGauntlet = MultipartProblem(
 class OneTopping(FunctionProblem):
     _var = 'exactly_one_topping'
 
-    _hint = ("You may have already found that `int(True)` is 1, and `int(False)` is 0."
-            " Think about what kinds of basic arithmetic operations you might want to"
-            " perform on `ketchup`, `mustard`, and `onion` after converting them to integers."
+    _hint = ("`int(True)` が 1 で、`int(False)` が 0 であることは既にご存知かもしれません。"
+            "`ketchup`、`mustard`、`onion` を整数に変換した後、"
+            "どのような基本的な算術演算を行えばよいか考えてみましょう。"
             )
-    _solution = ("""This condition would be pretty complicated to express using just `and`, `or` and `not`, but using boolean-to-integer conversion gives us this short solution:
+    _solution = ("""この条件を `and`、`or`、`not` だけで表現するのはかなり複雑になりますが、ブール値から整数への変換を使えば、次のような短い解法が得られます：
 ```python
 return (int(ketchup) + int(mustard) + int(onion)) == 1
 ```
 
-Fun fact: we don't technically need to call `int` on the arguments. Just by doing addition with booleans, Python implicitly does the integer conversion. So we could also write...
+豆知識：技術的には引数に `int` を呼び出す必要はありません。ブール値で足し算をするだけで、Pythonが暗黙的に整数変換を行います。したがって、次のようにも書けます...
 
 ```python
 return (ketchup + mustard + onion) == 1
@@ -220,8 +220,8 @@ class BlackJackProblem(CodingProblem):
         # i.e. should_hit(player_total, dealer_total, player_aces):
         sig = inspect.signature(phit)
         nparams = len(sig.parameters)
-        assert nparams in (3, 4), ("Unexpected call signature for should_hit:"
-                " `{}`\n(Did you add or remove parameters?)").format(
+        assert nparams in (3, 4), ("should_hit の呼び出しシグネチャが予期しないものです："
+                " `{}`\n（パラメータを追加または削除しましたか？）").format(
                         ', '.join(sig.parameters.keys())
                         )
         return nparams == 3
@@ -238,8 +238,8 @@ class BlackJackProblem(CodingProblem):
         legacy = self.is_legacy(phit)
         for _ in range(n_games):
             wins += 1 == BlackJack(phit, legacy=legacy).play()
-        print("Player won {} out of {} games (win rate = {:.1%})".format(
-            wins, n_games, wins/n_games
+        print("プレイヤーは {} ゲーム中 {} 勝しました（勝率 = {:.1%}）".format(
+            n_games, wins, wins/n_games
             ))
 
 qvars = bind_exercises(globals(), [

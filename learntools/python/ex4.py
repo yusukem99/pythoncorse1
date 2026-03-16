@@ -14,7 +14,7 @@ class SelectSecondItem(FunctionProblem):
             ([], None),
     ]
 
-    _hint = "Python starts counting at 0. So the second item isn't indexed with a 2"
+    _hint = "Pythonでは0から数え始めます。つまり、2番目の要素のインデックスは2ではありません。"
 
     _solution = CS(
 """def select_second(L):
@@ -31,8 +31,8 @@ class LosingTeamCaptain(FunctionProblem):
             ([["Who", "What", "I don't Know", "I'll tell you later"], ["Al", "Bonnie", "Clyde"]], "Bonnie"),
     ]
 
-    _hint = ("The last item in a list `L` can be selected with `L[-1]`."
-             " The first item in the first sublist would be selected as `L[0][0]`"
+    _hint = ("リスト `L` の最後の要素は `L[-1]` で取得できます。"
+             "最初のサブリストの最初の要素は `L[0][0]` で取得できます。"
              )
 
     _solution = CS(
@@ -44,9 +44,9 @@ class PurpleShell(FunctionProblem):
     _var = 'purple_shell'
 
 
-    _hint = ("Your function should change the list it receives, but not return anything\n\n"
-            "To swap the list elements, think back to the code you used in the very first exercise to swap"
-            " two variables."
+    _hint = ("関数は受け取ったリストを変更するだけで、何も返さないようにしてください。\n\n"
+            "リストの要素を入れ替えるには、最初の演習で2つの変数を入れ替えたときのコードを"
+            "思い出してみましょう。"
              )
 
     def check(self, fn):
@@ -60,17 +60,17 @@ class PurpleShell(FunctionProblem):
             copy_for_user_fn = l.copy()
             sol_fn(copy_for_soln_fn) # create desired output for comparison
             user_output = fn(copy_for_user_fn) # also applies swap in this line
-            assert(type(user_output) == type(None)), ("Your function should not return anything."
-                                                      " Instead, change the list without returning it.")
+            assert(type(user_output) == type(None)), ("関数は何も返さないようにしてください。"
+                                                      "リストを返すのではなく、リスト自体を変更してください。")
             assert copy_for_user_fn == copy_for_soln_fn, (
-                    "After running function on list {} expected its new value to be {}"
-                    " but actually was {}").format(repr(l), repr(copy_for_soln_fn), repr(copy_for_user_fn))
+                    "リスト {} に関数を実行した後、新しい値は {} になるはずですが、"
+                    "実際には {} でした。").format(repr(l), repr(copy_for_soln_fn), repr(copy_for_user_fn))
 
 
 
     _solution = CS(
 """def purple_shell(racers):
-    # One slick way to do the swap is x[0], x[-1] = x[-1], x[0].
+    # スマートな入れ替え方法: x[0], x[-1] = x[-1], x[0]
     temp = racers[0]
     racers[0] = racers[-1]
     racers[-1] = temp""")
@@ -80,14 +80,14 @@ class UnderstandLen(EqualityCheckProblem):
     _expected = [3, 2, 0, 2]
     _default_values = [ [] ]
 
-    _hint = "Use len to check the lengths of the lists. Call the solution function for an explanation"
+    _hint = "`len` を使ってリストの長さを確認しましょう。解説は `solution()` で確認できます。"
 
     _solution = (
             """
-- a: There are three items in this list. Nothing tricky yet.
-- b: The list `[2, 3]` counts as a single item. It has one item before it. So we have 2 items in the list
-- c: The empty list has 0 items
-- d: The expression is the same as the list `[2, 3]`, which has length 2.""")
+- a: このリストには3つの要素があります。ここまでは簡単ですね。
+- b: リスト `[2, 3]` は1つの要素として数えられます。その前に1つの要素があるので、合計2つの要素があります。
+- c: 空のリストの要素数は0です。
+- d: この式はリスト `[2, 3]` と同じで、長さは2です。""")
 
 class FashionablyLate(FunctionProblem):
     _var = 'fashionably_late'
@@ -108,8 +108,9 @@ class FashionablyLate(FunctionProblem):
             ((["Lebron", "Kevin"], "Kevin"), False),
     ]
 
-    _hint = ("Use the index method to find when the person arrived. Check whether "
-            "that is a fashionably late spot given the list length (`len`). Think about 0-indexing"
+    _hint = ("`index` メソッドを使って、その人がいつ到着したかを調べましょう。"
+            "リストの長さ (`len`) を使って、それが「おしゃれに遅刻」した位置かどうかを確認しましょう。"
+            "0始まりのインデックスに注意してください。"
              )
 
     _solution = CS(
@@ -128,33 +129,33 @@ class CountNegativesRiddle(FunctionProblem):
             ([1, 2, 3, 4, 5, 0], 0),
     ]
 
-    _hint = ('Can you think of a way you could solve this problem if the input list'
-            ' was guaranteed to be sorted and guaranteed to contain 0?')
+    _hint = ('入力リストがソート済みで、かつ必ず0を含んでいると仮定した場合、'
+            'この問題をどう解けるか考えてみましょう。')
 
     _solution = """
-Here's a non-obvious solution using only tools shown in the tutorial notebook:
+チュートリアルで紹介したツールだけを使った、少し意外な解法を紹介します:
 ```python
 def count_negatives(nums):
     nums.append(0)
-    # We could also have used the list.sort() method, which modifies a list, putting it in sorted order.
+    # list.sort() メソッドを使うこともできます。これはリストを昇順に並び替えます。
     nums = sorted(nums)
     return nums.index(0)
 ```
 
-The above implementation relies on the fact that `list.index` returns the index of the *first* occurrence of a value. (You can verify this by calling `help(list.index)`.) So if, after sorting the list in ascending order, the value 0 is at index 0, then the number of negatives is 0. If 0 is at index 2 (i.e. the third element), then there are two elements smaller than 0. And so on.
+この実装は、`list.index` が値の*最初の*出現位置のインデックスを返すことを利用しています（`help(list.index)` で確認できます）。つまり、リストを昇順にソートした後、0がインデックス0にあれば負の数は0個です。0がインデックス2（つまり3番目の要素）にあれば、0より小さい要素が2つあるということです。
 
-*Note*: it's usually considered "impolite" to modify a list that someone passes to your function without giving them some warning (i.e. unless the docstring says that it modifies its input). So, if we wanted to be nice, we could have started by making a copy of nums using the `list.copy()` method (e.g. `our_nums = nums.copy()`), and then working with that copy rather than the original.
+*注意*: 関数に渡されたリストを、ドキュメントなどで事前に知らせずに変更するのは一般的に「行儀が悪い」とされています。丁寧に書くなら、まず `list.copy()` メソッドを使ってコピーを作り（例: `our_nums = nums.copy()`）、元のリストではなくコピーに対して操作するとよいでしょう。
 
-If you're a big Lisp fan, you might have written this technically compliant solution (we haven't talked about recursion, but I guess this doesn't use any syntax or functions we haven't seen yet...):
+Lispが好きな方なら、こんな技術的に正しい解法を書いたかもしれません（再帰についてはまだ扱っていませんが、まだ見ていない構文や関数は使っていないはずです）:
 
 ```python
 def count_negatives(nums):
-    # Equivalent to "if len(nums) == 0". An empty list is 'falsey'.
+    # "if len(nums) == 0" と同等です。空のリストはFalseyです。
     if not nums:
         return 0
     else:
-        # Implicitly converting a boolean to an int! See question 6 of the
-        # exercise on booleans and conditionals
+        # ブール値を暗黙的にintに変換しています！
+        # ブール値と条件分岐の演習の問題6を参照してください。
         return (nums[0] < 0) + count_negatives(nums[1:])
 ```"""
 

@@ -15,35 +15,33 @@ class ZA(EqualityCheckProblem):
     _var = 'length'
     _default_values = [-1]
     _expected = 0
-    _solution = ("The empty string has length zero. Note that the empty "
-            "string is also the only string that Python considers as False"
-            " when converting to boolean.")
+    _solution = ("空文字列の長さは0です。なお、空文字列はブール値に変換したときに"
+            "PythonがFalseとみなす唯一の文字列でもあります。")
 class ZB(EqualityCheckProblem):
     _var = 'length'
     _default_values = [-1]
     _expected = 7
-    _solution = ("Keep in mind Python includes spaces (and punctuation) when"
-            " counting string length.")
+    _solution = ("Pythonは文字列の長さを数えるとき、スペース（や句読点）も含めることを"
+            "覚えておきましょう。")
 class ZC(EqualityCheckProblem):
     _var = 'length'
     _default_values = [-1]
     _expected = 7
-    _solution = ("Even though we use different syntax to create it, the string"
-            " `c` is identical to `b`. In particular, note that the backslash"
-            " is not part of the string, so it doesn't contribute to its length.")
+    _solution = ("作成時に異なる構文を使っていますが、文字列 `c` は `b` と同じ内容です。"
+            "特に、バックスラッシュは文字列の一部ではないため、長さには含まれない"
+            "ことに注意してください。")
 class ZD(EqualityCheckProblem):
     _var = 'length'
     _default_values = [-1]
     _expected = 3
-    _solution = ("The fact that this string was created using triple-quote syntax"
-            " doesn't make any difference in terms of its content or length. This"
-            " string is exactly the same as `'hey'`.")
+    _solution = ("この文字列がトリプルクォート構文で作成されたことは、内容や長さには"
+            "影響しません。この文字列は `'hey'` とまったく同じです。")
 class ZE(EqualityCheckProblem):
     _var = 'length'
     _default_values = [-1]
     _expected = 1
-    _solution = ("The newline character is just a single character! (Even though"
-            " we represent it to Python using a combination of two characters.)")
+    _solution = ("改行文字はたった1文字です！（Pythonでは2文字の組み合わせで"
+            "表現しますが。）")
 
 LightningLen = MultipartProblem(
         ZA,ZB,ZC,ZD,ZE,
@@ -52,7 +50,7 @@ LightningLen = MultipartProblem(
 class ZipValidator(FunctionProblem):
     _var = 'is_valid_zip'
 
-    _hint = ("Try looking up `help(str.isdigit)`")
+    _hint = ("`help(str.isdigit)` を調べてみましょう。")
 
     _solution = CS(
 """def is_valid_zip(zip_code):
@@ -72,8 +70,8 @@ class WordSearch(FunctionProblem):
 
     _solution = CS.load(word_search_module.__file__)
 
-    _hint = ("Some methods that may be useful here: `str.split()`, `str.strip()`,"
-            " `str.lower()`."
+    _hint = ("ここで役立つかもしれないメソッド: `str.split()`、`str.strip()`、"
+            "`str.lower()`。"
             )
 
     _test_docs_a = [
@@ -136,9 +134,8 @@ class DiamondArt(FunctionProblem):
 
     _solution = CS.load(d_module.__file__)
 
-    _hint = ("`str` has a few methods that help with the problem of padding"
-            " a string to a certain size: two that might help here are"
-            " `str.rjust()` or `str.center()`"
+    _hint = ("`str` には文字列を特定の長さにパディングするためのメソッドがいくつかあります。"
+            "ここで役立ちそうなのは `str.rjust()` や `str.center()` です。"
             )
 
     _test_heights = [2, 4, 0, 6]
@@ -158,9 +155,8 @@ class DiamondArt(FunctionProblem):
             except Exception as e:
                 actual = e
 
-            assert actual is not None, ("Got a return value of `None`"
-                    " given height = {}."
-                    " Did you forget the return statement?").format(args[0])
+            assert actual is not None, ("height = {} のとき、戻り値が `None` でした。"
+                    "return文を書き忘れていませんか？").format(args[0])
             orig_actual = actual
             # Ignore spaces to the right of the diamond itself for purposes
             # of comparison.
@@ -175,8 +171,8 @@ class DiamondArt(FunctionProblem):
                     else actual
                     )
             assert anorm == enorm, (
-                    "Expected diamond looking something like...\n\n"
-                    "```\n{}\n```\n for height={}, but instead got this thing...\n\n"
+                    "このようなダイヤモンドが期待されましたが...\n\n"
+                    "```\n{}\n```\n height={} のとき、実際にはこのようになりました...\n\n"
                     "```\n{}\n```\n").format(
                             expected,
                             args[0],

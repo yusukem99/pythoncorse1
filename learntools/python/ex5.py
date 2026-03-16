@@ -16,22 +16,21 @@ class EarlyExitDebugging(FunctionProblem):
             ([3, 4, 5], False),
     ]
 
-    _hint = ("How many times does the body of the loop run for a list"
-            " of length n? (If you're not sure, try adding a `print()`"
-            " call on the line before the `if`.)")
+    _hint = ("長さnのリストに対して、ループの本体は何回実行されるでしょうか？"
+            "（分からなければ、`if` の前の行に `print()` を追加して確認してみましょう。）")
 
-    _solution = """Remember that `return` causes a function to exit immediately. So our original implementation always ran for just one iteration. We can only return `False` if we've looked at every element of the list (and confirmed that none of them are lucky). Though we can return early if the answer is `True`:
+    _solution = """`return` は関数を直ちに終了させることを思い出してください。つまり、元の実装ではループは1回しか実行されません。リストのすべての要素を確認して、ラッキーナンバーがないことを確認できた場合にのみ `False` を返すことができます。ただし、答えが `True` の場合は早期にリターンできます:
 
 ```python
 def has_lucky_number(nums):
     for num in nums:
         if num % 7 == 0:
             return True
-    # We've exhausted the list without finding a lucky number
+    # リストを全て調べたがラッキーナンバーは見つからなかった
     return False
 ```
 
-Here's a one-line version using a list comprehension with Python's `any` function (you can read about what it does by calling `help(any)`):
+Pythonの `any` 関数とリスト内包表記を使った1行バージョンもあります（`help(any)` で詳細を確認できます）:
 
 ```python
 def has_lucky_number(nums):
@@ -49,7 +48,7 @@ class ElementWiseComparison(FunctionProblem):
             ( ([1, 1], 0), [True, True] ),
     ]
 
-    _solution = """Here's one solution:
+    _solution = """解法の一つを紹介します:
 ```python
 def elementwise_greater_than(L, thresh):
     res = []
@@ -58,7 +57,7 @@ def elementwise_greater_than(L, thresh):
     return res
 ```
 
-And here's the list comprehension version:
+リスト内包表記を使ったバージョンもあります:
 ```python
 def elementwise_greater_than(L, thresh):
     return [ele > thresh for ele in L]
@@ -78,7 +77,7 @@ class BoringMenu(FunctionProblem):
             ( [], False),
     ]
 
-    _hint = ("This is a case where it may be preferable to iterate over the *indices* of the list (using a call to `range()`) rather than iterating over the elements of the list itself. When indexing into the list, be mindful that you're not \"falling off the end\" (i.e. using an index that doesn't exist).")
+    _hint = ("この問題では、リストの要素そのものをイテレートするよりも、`range()` を使ってリストの*インデックス*をイテレートする方がよいかもしれません。インデックスでリストにアクセスする際は、「範囲外」にならないように注意しましょう（つまり、存在しないインデックスを使わないようにしましょう）。")
 
     # TODO: I don't think I want to mention any of the more 'clever' solutions involving zip or itertools. Though it depends on whether
     # we end up covering zip in the tutorial notebook.
@@ -86,16 +85,16 @@ class BoringMenu(FunctionProblem):
 
 ```python
 def menu_is_boring(meals):
-    # Iterate over all indices of the list, except the last one
+    # 最後の要素を除く全てのインデックスをイテレートする
     for i in range(len(meals)-1):
         if meals[i] == meals[i+1]:
             return True
     return False
 ```
 
-The key to our solution is the call to `range`. `range(len(meals))` would give us all the indices of `meals`. If we had used that range, the last iteration of the loop would be comparing the last element to the element after it, which is... `IndexError`! `range(len(meals)-1)` gives us all the indices except the index of the last element.
+この解法のポイントは `range` の呼び出しです。`range(len(meals))` を使うと `meals` の全てのインデックスが得られますが、その場合、ループの最後のイテレーションで最後の要素とその次の要素を比較しようとして... `IndexError` になってしまいます！ `range(len(meals)-1)` を使えば、最後の要素のインデックスを除く全てのインデックスが得られます。
 
-But don't we need to check if `meals` is empty? Turns out that `range(0) == range(-1)` - they're both empty. So if `meals` has length 0 or 1, we just won't do any iterations of our for loop.
+`meals` が空かどうかをチェックする必要はないのでしょうか？実は `range(0) == range(-1)` で、どちらも空です。つまり、`meals` の長さが0または1の場合、forループは1回もイテレートされません。
 """
 
 # Analytic solution for expected payout =
@@ -115,30 +114,30 @@ def play_slot_machine():
 class ExpectedSlotsPayout(ThoughtExperiment):
     #_var = 'estimate_average_slot_payout'
     _solution = """
-    
-The exact expected value of one pull of the slot machine is 0.025 - i.e. a little more than 2 cents.  See?  Not every game in the Python Challenge Casino is rigged against the player!
 
-In order to get this answer, you'll need to implement the `estimate_average_slot_payout(n_runs)` function to simulate pulling the slot machine `n_runs` times.  It should return the payout averaged over those `n_runs`.
+スロットマシンを1回引いたときの正確な期待値は0.025、つまり約2.5セントです。ほら、Python Challenge Casinoのゲームが全てプレイヤーに不利というわけではないでしょう！
 
-Then, once the function is defined, in order to estimate the average slot payout, we need only call the function.
+この答えを得るには、`estimate_average_slot_payout(n_runs)` 関数を実装して、スロットマシンを `n_runs` 回引くシミュレーションを行う必要があります。この関数は `n_runs` 回の平均ペイアウトを返すようにします。
 
-Because of the high variance of the outcome (there are some very rare high payout results that significantly affect the average) you might need to run your function with a very high value of `n_runs` to get a stable answer close to the true expectation.  For instance, you might use a value for `n_runs` of 1000000.
+関数を定義したら、あとはその関数を呼び出すだけで平均ペイアウトを推定できます。
 
-Here's an example for how the function could look:
+結果の分散が大きいため（非常にまれな高額ペイアウトが平均に大きく影響します）、真の期待値に近い安定した答えを得るには、`n_runs` に非常に大きな値を設定する必要があるかもしれません。例えば、`n_runs` を1000000にするとよいでしょう。
+
+関数の実装例を示します:
 ```python
 def estimate_average_slot_payout(n_runs):
-    # Play slot machine n_runs times, calculate payout of each
+    # スロットマシンをn_runs回プレイし、それぞれのペイアウトを計算する
     payouts = [play_slot_machine()-1 for i in range(n_runs)]
-    # Calculate the average value
+    # 平均値を計算する
     avg_payout = sum(payouts) / n_runs
     return avg_payout
-    
+
 estimate_average_slot_payout(10000000)
 
 ```
 
-This should return an answer close to 0.025!
-            
+これで0.025に近い答えが返ってくるはずです！
+
 """
 
 class SlotsSurvival(FunctionProblem):
@@ -146,31 +145,31 @@ class SlotsSurvival(FunctionProblem):
     _var = 'slots_survival_probability'
     
     _solution = CS("""def slots_survival_probability(start_balance, n_spins, n_simulations):
-    # How many times did we last the given number of spins?
+    # 指定回数のスピンを生き残れた回数
     successes = 0
-    # A convention in Python is to use '_' to name variables we won't use
+    # Pythonでは使わない変数に '_' という名前をつける慣習があります
     for _ in range(n_simulations):
         balance = start_balance
         spins_left = n_spins
         while balance >= 1 and spins_left:
-            # subtract the cost of playing
+            # プレイ費用を差し引く
             balance -= 1
             balance += play_slot_machine()
             spins_left -= 1
-        # did we make it to the end?
+        # 最後まで生き残れたか？
         if spins_left == 0:
             successes += 1
     return successes / n_simulations""")
 
     def check(self, fn):
         actual = fn(10, 10, 1000)
-        assert actual == 1.0, "Expected `slots_survival_probability(10, 10, 1000)` to be 1.0, but was actually {}".format(repr(actual))
-        
+        assert actual == 1.0, "`slots_survival_probability(10, 10, 1000)` の結果は 1.0 になるはずですが、実際には {} でした。".format(repr(actual))
+
         actual = fn(1, 2, 10000)
-        assert .24 <= actual <= .26, "Expected `slots_survival_probability(1, 2, 10000)` to be around .25, but was actually {}".format(repr(actual))
+        assert .24 <= actual <= .26, "`slots_survival_probability(1, 2, 10000)` の結果は約 .25 になるはずですが、実際には {} でした。".format(repr(actual))
 
         actual = fn(25, 150, 10000)
-        assert .22 <= actual <= .235, "Expected `slots_survival_probability(25, 150, 10000)` to be around .228, but was actually {}".format(repr(actual))
+        assert .22 <= actual <= .235, "`slots_survival_probability(25, 150, 10000)` の結果は約 .228 になるはずですが、実際には {} でした。".format(repr(actual))
 
 
 qvars = bind_exercises(globals(), [

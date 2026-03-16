@@ -21,6 +21,18 @@
 | 第4章: 条件分岐 | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/tutorials/conditions-and-conditional-statements.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/exercises/exercise-conditions-and-conditional-statements.ipynb) |
 | 第5章: リスト入門 | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/tutorials/intro-to-lists.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/intro_to_programming/exercises/exercise-intro-to-lists.ipynb) |
 
+## Python - Python入門
+
+| 章 | 解説 | 演習 |
+|---|---|---|
+| 第1章: Hello, Python | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/tutorials/hello-python.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/exercises/exercise-syntax-variables-and-numbers.ipynb) |
+| 第2章: 関数とヘルプ | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/tutorials/functions-and-getting-help.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/exercises/exercise-functions-and-getting-help.ipynb) |
+| 第3章: ブール値と条件分岐 | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/tutorials/booleans-and-conditionals.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/exercises/exercise-booleans-and-conditionals.ipynb) |
+| 第4章: リスト | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/tutorials/lists.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/exercises/exercise-lists.ipynb) |
+| 第5章: ループとリスト内包表記 | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/tutorials/loops-and-list-comprehensions.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/exercises/exercise-loops-and-list-comprehensions.ipynb) |
+| 第6章: 文字列と辞書 | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/tutorials/strings-and-dictionaries.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/exercises/exercise-strings-and-dictionaries.ipynb) |
+| 第7章: 外部ライブラリ | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/tutorials/working-with-external-libraries.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/exercises/exercise-working-with-external-libraries.ipynb) |
+
 # シラバス
 
 ## 第１回

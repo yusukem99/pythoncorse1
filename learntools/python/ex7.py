@@ -10,26 +10,22 @@ class JimmySlots(ThoughtExperiment):
     _solution = CS.load(jg_module.__file__)
 
 class LuigiAnalysis(ThoughtExperiment):
-    _hint = ("A couple things to consider:\n\n"
-            "- What is the type of variable `i`?\n"
-            "- What happens if you inspect the `full_dataset` list you imported?"
-            " (Don't worry, it's not actually that big.) Can you find the racer"
-            " that's causing the error?"
+    _hint = ("いくつか考えてみましょう:\n\n"
+            "- 変数 `i` の型は何でしょうか？\n"
+            "- インポートした `full_dataset` リストを調べるとどうなるでしょうか？"
+            "（心配しないでください、実際にはそれほど大きくありません。）"
+            "エラーの原因となっているレーサーを見つけられますか？"
             )
 
-    _solution = '''Luigi used the variable name `i` to represent each item in racer['items'].
-However, he also used `i` as the loop variable for the outer loop (`for i in range(len(racers))`).
-These i's are clobbering each other. This becomes a problem only if we encounter a racer
-with a finish of 1 and a name of `None`. If that happens, when we try to print the "WARNING" message,
-`i` refers to a string like "green shell", which python can't add to an integer, hence a `TypeError`.
+    _solution = '''Luigiは racer['items'] の各要素を表すために変数名 `i` を使っていました。
+しかし、外側のループ（`for i in range(len(racers))`）でもループ変数として `i` を使っていました。
+この2つの `i` がお互いを上書きしてしまいます。これが問題になるのは、finish が 1 で name が `None` のレーサーに遭遇した場合だけです。その場合、"WARNING" メッセージを表示しようとすると、`i` は "green shell" のような文字列を参照しており、Pythonは文字列と整数を加算できないため、`TypeError` が発生します。
 
-This is similar to the issue we saw when we imported * from `math` and `numpy`. They both contained variables called `log`, and the one we got when we tried to call it was the wrong one.
+これは `math` と `numpy` から `*` でインポートしたときに見た問題と似ています。どちらにも `log` という変数があり、呼び出そうとしたときに間違った方が使われてしまいました。
 
-We can fix this by using different loop variables for the inner and outer loops. `i` wasn't a very
-good variable name for the inner loop anyways. `for item in racer['items']` fixes the bug and is 
-easier to read.
+内側と外側のループで異なるループ変数を使うことで修正できます。そもそも `i` は内側のループの変数名としてあまり適切ではありませんでした。`for item in racer['items']` に変更すれば、バグが修正され、コードも読みやすくなります。
 
-Variable shadowing bugs like this don't come up super often, but when they do they can take an infuriating amount of time to diagnose!
+このような変数のシャドウイングバグはそれほど頻繁には起こりませんが、起きたときは原因の特定に非常に時間がかかることがあります！
 '''
 
 def gen_bj_hand():
@@ -47,8 +43,8 @@ def gen_bj_inputs(n):
 
 class BlackjackCmp(FunctionProblem):
     _var = 'blackjack_hand_greater_than'
-    _hint = ("This problem is a lot easier to solve if you define at least one 'helper' function."
-            " The logic for calculating a hand's total points is a good candidate for extracting into a helper function."
+    _hint = ("この問題は、少なくとも1つの「ヘルパー関数」を定義すると解きやすくなります。"
+            "手札の合計ポイントを計算するロジックは、ヘルパー関数に切り出す良い候補です。"
             )
     _solution = CS.load(bj_module.__file__)
 

@@ -3,7 +3,7 @@ from learntools.core.problem import injected
 
 class ExerciseFormatTutorial(CodingProblem):
     _var = 'color'
-    _hint = "Your favorite color rhymes with *glue*."
+    _hint = "あなたの好きな色は *glue* と韻を踏みます。"
     _solution = CS('color = "blue"')
     def check(self, color):
         assert color.lower() == "blue"
@@ -12,10 +12,10 @@ class ExerciseFormatTutorial(CodingProblem):
     def _correct_message(self):
         history = self._view.interactions
         if history['hint'] == 0 and history['solution'] == 0:
-            return ("What?! You got it right without needing a hint or anything?"
-                    " Drats. Well hey, you should still continue to the next step"
-                    " to get some practice asking for a hint and checking solutions."
-                    " (Even though you obviously don't need any help here.)"
+            return ("えっ！ヒントも何も使わずに正解しましたか？"
+                    "やりますね。でも、ヒントの確認や解答の表示を練習するために、"
+                    "次のステップにも進んでみてください。"
+                    "（ここでは助けが必要ないのは明らかですが。）"
                     )
         return ''
 
@@ -24,40 +24,39 @@ class ExerciseFormatTutorial(CodingProblem):
                 any(actual.endswith(suff) for suff in ['oo', 'ue', 'ew'])
                 and actual.strip().lower() != 'blue'
             ):
-            return "Ha ha, very funny."
+            return "ハハ、面白いですね。"
         elif actual.strip(' .!').lower() == 'ni':
-            return "Please! Please! No more! We will find you a shrubbery."
-        return ("{} is not your favorite color!"
-                " Well, maybe it is, but we're writing the rules. The point"
-                " of this question is to force you to get some practice asking"
-                " for a hint. Go ahead and uncomment the call to `q0.hint()`"
-                " in the code cell below, for a hint at what your favorite color"
-                " *really* is.").format(actual)
+            return "お願いです！もうやめて！低木を見つけてあげますから。"
+        return ("{} はあなたの好きな色ではありません！"
+                "まあ、本当はそうかもしれませんが、ここではルールに従ってください。"
+                "この問題のポイントは、ヒントを使う練習をすることです。"
+                "下のコードセルで `q0.hint()` の呼び出しのコメントを外して、"
+                "あなたの*本当の*好きな色のヒントを確認してみましょう。").format(actual)
 
 
 class CircleArea(EqualityCheckProblem):
     _vars = ['radius', 'area']
     _expected = [3/2, (3/2)**2 * 3.14159]
 
-    _hint = "The syntax to raise a to the b'th power is `a ** b`"
+    _hint = "`a` を `b` 乗するための構文は `a ** b` です。"
     _solution = CS('radius = diameter / 2',
             'area = pi * radius ** 2')
 
 class VariableSwap(CodingProblem):
     _vars = ['a', 'b']
 
-    _hint = "Try using a third variable."
-    _solution = """The most straightforward solution is to use a third variable to temporarily store one of the old values. e.g.:
+    _hint = "3つ目の変数を使ってみましょう。"
+    _solution = """最も分かりやすい方法は、3つ目の変数を使って一方の値を一時的に保存することです。例えば：
 
     tmp = a
     a = b
     b = tmp
 
-If you've read lots of Python code, you might have seen the following trick to swap two variables in one line:
+Pythonのコードをたくさん読んだことがある人は、1行で2つの変数を入れ替える次のテクニックを見たことがあるかもしれません：
 
     a, b = b, a
 
-We'll demystify this bit of Python magic later when we talk about *tuples*."""
+このPythonの魔法のような書き方については、後で*タプル*について学ぶときに詳しく説明します。"""
 
     @injected
     def store_original_ids(self, a, b):
@@ -70,47 +69,46 @@ We'll demystify this bit of Python magic later when we talk about *tuples*."""
         orig_values = [1, 2, 3], [3, 2, 1]
         if ida == self.id_b and idb == self.id_a:
             return
-        assert not (ida == self.id_a and idb == self.id_b), ("`a` and `b` still"
-                " have their original values.")
+        assert not (ida == self.id_a and idb == self.id_b), ("`a` と `b` はまだ"
+                "元の値のままです。")
         orig_ids = (self.id_a, self.id_b)
         if (b, a) == orig_values:
             # well this is ridiculous in its verbosity
             assert False, (
-        "Did you write something like...\n"
+        "次のように書きましたか？\n"
         "```python\na = [3, 2, 1]\nb = [1, 2, 3]```\n?\n"
-        "That's not an unreasonable think to try, but there are two problems:\n"
-        "1. You're relying on knowing the values of `a` and `b` ahead of time."
-        " What if you wanted to swap two variables whose values weren't known"
-        " to you ahead of time?\n"
-        "2. Your code actually results in `a` referring to a *new* object (whose value is the same as `b`'s previous value), and similarly for `b`. To see why this is, consider that the code...\n"
+        "そう考えるのは不自然ではありませんが、2つの問題があります：\n"
+        "1. `a` と `b` の値を事前に知っていることに依存しています。"
+        "もし値が分からない2つの変数を入れ替えたい場合はどうしますか？\n"
+        "2. このコードでは実際には `a` が *新しい* オブジェクト（`b` の以前の値と同じ値を持つ）を参照するようになり、`b` も同様です。なぜそうなるか理解するために、次のコードを考えてみましょう...\n"
         "```python\n"
         "a = [1, 2, 3]\n"
         "b = [1, 2, 3]```\n"
-        "Is actually *different* from:\n"
+        "これは実際には次のコードとは*異なります*：\n"
         "```python\n"
         "a = [1, 2, 3]\n"
         "b = a```\n"
-        "In the second case, `a` and `b` refer to the same object. In the first case, `a` and `b` refer to different objects which happen to be equivalent. This may seem like a merely philosophical difference, but it matters when we start *modifying* objects. In the second scenario, if we run `a.append(4)`, then `a` and `b` would both have the value `[1, 2, 3, 4]`. If we run `a.append(4)` in the first scenario, `a` refers to `[1, 2, 3, 4]`, but `b` remains `[1, 2, 3]`. (We'll talk more about lists and mutability in a later lesson.)"
+        "2番目の場合、`a` と `b` は同じオブジェクトを参照します。1番目の場合、`a` と `b` はたまたま同じ値を持つ別々のオブジェクトを参照します。これは単なる哲学的な違いに見えるかもしれませんが、オブジェクトを*変更*し始めると重要になります。2番目のシナリオで `a.append(4)` を実行すると、`a` と `b` の両方が `[1, 2, 3, 4]` になります。1番目のシナリオで `a.append(4)` を実行すると、`a` は `[1, 2, 3, 4]` になりますが、`b` は `[1, 2, 3]` のままです。（リストとミュータビリティについては後のレッスンで詳しく説明します。）"
         )
-        assert ida in orig_ids, ("`a` was assigned something weird (its id has changed,"
-                " but to something other than `b`'s id)")
-        assert idb in orig_ids, ("`b` was assigned something weird (its id has changed,"
-                " but to something other than `a`'s id)")
-        assert ida != idb, "`b` and `a` are the same! Both have value `{}`".format(
+        assert ida in orig_ids, ("`a` に予期しないものが代入されました（IDが変わりましたが、"
+                "`b` のIDとも異なります）")
+        assert idb in orig_ids, ("`b` に予期しないものが代入されました（IDが変わりましたが、"
+                "`a` のIDとも異なります）")
+        assert ida != idb, "`b` と `a` が同じになっています！両方とも値は `{}` です。".format(
                 repr(a))
-        assert False, "This fails in a way we did not anticipate!"
+        assert False, "予期しない方法で失敗しました！"
 
 # It's an interesting question whether to make these parens questions checkable.
 # Making them non-checkable for now.
 class ArithmeticParensEasy(ThoughtExperiment):
-    _hint = ('Following its default "BEDMAS"-like rules for order of operations,'
-            ' Python will first divide 3 by 2, then subtract the result from 5.'
-            ' You need to add parentheses to force it to perform the subtraction first.')
+    _hint = ('Pythonはデフォルトの「BEDMAS」のような演算順序のルールに従い、'
+            'まず 3 を 2 で割り、その結果を 5 から引きます。'
+            '先に引き算を行わせるには、括弧を追加する必要があります。')
     _solution = CS("(5 - 3) // 2")
 
 class ArithmeticParensHard(ThoughtExperiment):
-    _hint = 'You may need to use several pairs of parentheses.'
-    _solution = "`(8 - 3) * (2 - (1 + 1))` is one solution. There may be others."
+    _hint = '複数の括弧のペアを使う必要があるかもしれません。'
+    _solution = "`(8 - 3) * (2 - (1 + 1))` が一つの解答です。他にも解答があるかもしれません。"
 
 ArithmeticParens = MultipartProblem(ArithmeticParensEasy, ArithmeticParensHard)
 
@@ -120,8 +118,8 @@ class CandySplitting(EqualityCheckProblem):
     _default_values = [-1]
 
     _hints = [
-            "You'll probably want to use the modulo operator, `%`.",
-            "`j % k` is the remainder after dividing `j` by `k`",
+            "剰余演算子 `%` を使うとよいでしょう。",
+            "`j % k` は `j` を `k` で割った余りです。",
     ]
     _solution = CS("(alice_candies + bob_candies + carol_candies) % 3")
 
@@ -131,45 +129,45 @@ class MysteryExpression(EqualityCheckProblem):
     _var = 'ninety_nine_dashes'
     _expected = 4
 
-    _hint = ("What would the value of the expression be if there were exactly one `-`?"
-            " What about two? Can you add parentheses to make it clearer?")
-    _solution = """The original expression's value is `10`. If we had used 99 `-`s, the expression's value would be 4. But why? Let's start with a simpler version...
-`7-3` is of course just 3 subtracted from 7: 4. The key is what happens when we add another `-`.
+    _hint = ("`-` がちょうど1つだけの場合、式の値はいくつになりますか？"
+            "2つの場合はどうでしょう？括弧を追加して分かりやすくできますか？")
+    _solution = """元の式の値は `10` です。もし `-` を99個使った場合、式の値は 4 になります。なぜでしょうか？簡単なバージョンから始めましょう。
+`7-3` はもちろん 7 から 3 を引いた 4 です。重要なのは、もう1つ `-` を追加したときに何が起こるかです。
 
-`7--3` is `10`. To match how Python evaluates this expression, we would parenthesize it as `7-(-3)`. The first `-` is treated as a subtraction operator, but the second one is treated as *negation*. We're subtracting negative 3 (which is equivalent to adding 3). Subsequent `-`s are all treated as additional negations, so they cause the subtracted quantity to flip back and forth between 3 and negative 3. Therefore, when there are an odd number of `-`s, the expression equals 4. When there's an even number, the expression equals 10.
+`7--3` は `10` です。Pythonがこの式を評価する方法に合わせて括弧をつけると `7-(-3)` になります。最初の `-` は減算演算子として扱われますが、2番目の `-` は*符号の反転*として扱われます。つまり、負の3を引いている（3を足すのと同じ）ことになります。それ以降の `-` はすべて追加の符号反転として扱われるため、引かれる値は 3 と -3 の間で交互に切り替わります。したがって、`-` の数が奇数の場合、式の値は 4 になります。偶数の場合は 10 になります。
 """
 
 class QuickdrawGridProblem(ThoughtExperiment):
     _bonus = True
-    _hint = """There are a few ways to solve this. Of the tools we've talked about so far, `//` and `%` (the integer division and modulo operators) and the `min` function may be useful."""
-    _solution = """Here's one possible solution:
+    _hint = """いくつかの解法があります。これまでに学んだツールの中では、`//` と `%`（整数除算と剰余演算子）、そして `min` 関数が役立つでしょう。"""
+    _solution = """一つの解答例を示します：
 ```python
 rows = n // 8 + min(1, n % 8)
 cols = min(n, 8)
 height = rows * 2
 width = cols * 2
 ```
-Calculating `rows` is the trickiest part. Here's another way of doing it:
+`rows` の計算が一番難しい部分です。別の方法もあります：
 ```python
 rows = (n + 7) // 8```
-We haven't shown the `math` module, but if you're familiar with the ceiling function, you might find this approach more intuitive:
+`math` モジュールはまだ紹介していませんが、天井関数（切り上げ）に馴染みがあれば、次のアプローチのほうが直感的かもしれません：
 ```python
 import math
 rows = math.ceil(n / 8)
-rows = int(rows) # ceil returns a float```
+rows = int(rows) # ceil は float を返します```
 """
 
 class SameValueInitializationRiddle(ThoughtExperiment):
     _bonus = True
     _hints = [
-            "You're unlikely to see any practical difference when the value we're initializing to is an int. But think about other Python types you're familiar with...",
-            """`a = b = <expression>` is equivalent to...
+            "初期化する値がintの場合、実用的な違いはほとんど見られません。しかし、他のPythonの型について考えてみてください...",
+            """`a = b = <式>` は次と同等です...
 ```python
-b = <expression>
+b = <式>
 a = b```""",
     ]
 
-    _solution = """The one-line syntax results in `a` and `b` having the same memory address - i.e. they refer to the same object. This matters if that object is of a **mutable** type, like list. Consider the following code:
+    _solution = """1行で書く構文では、`a` と `b` が同じメモリアドレスを持つことになります。つまり、同じオブジェクトを参照します。これは、そのオブジェクトがリストのような**ミュータブル（変更可能）**な型の場合に重要になります。次のコードを考えてみましょう：
 ```python
 odds = evens = []
 for i in range(5):
@@ -180,9 +178,9 @@ for i in range(5):
 print(odds)
 print(evens)```
 
-We might expect this would print `[1, 3]`, then `[0, 2, 4]`. But actually, it will print `[0, 1, 2, 3, 4]` twice in a row. `evens` and `odds` refer to the same object, so appending an element to one of them appends it to both of them. This is occasionally the source of hair-pulling debugging sessions. :)
+これは `[1, 3]`、次に `[0, 2, 4]` と表示されることを期待するかもしれません。しかし実際には、`[0, 1, 2, 3, 4]` が2回連続で表示されます。`evens` と `odds` は同じオブジェクトを参照しているため、一方に要素を追加すると両方に追加されます。これは時々、頭を抱えるようなデバッグの原因になります。
 
-Another consideration is expressions that have side effects. For example, `list.pop` is a method which removes and returns the final element of a list. If we have `L = [1, 2, 3]`, then `a = b = L.pop()`, will result in `a` and `b` both having a value of 3. But running `a = L.pop()`, then `b = L.pop()` will result in `a` having value 3 and `b` having value 2.
+もう一つの考慮点は、副作用のある式です。例えば、`list.pop` はリストの最後の要素を削除して返すメソッドです。`L = [1, 2, 3]` のとき、`a = b = L.pop()` を実行すると、`a` と `b` の両方が値 3 を持ちます。しかし、`a = L.pop()` を実行してから `b = L.pop()` を実行すると、`a` の値は 3、`b` の値は 2 になります。
 """
 
 
