@@ -47,17 +47,17 @@ menu.append('roasted beet salad')
         
         # is python list
         assert isinstance(menu, list), \
-            '`menu` needs to be a Python list.'
-        
+            '`menu` はPythonのリストである必要があります。'
+
         # extra items need to be removed
         assert set(menu) - set(correct_menu) == set(), \
-            'These item(s) should be removed from `menu`: {}'.format(list(set(menu) - set(correct_menu)))
-        
+            '次の項目は `menu` から削除する必要があります: {}'.format(list(set(menu) - set(correct_menu)))
+
         for item in correct_menu:
             # contains all needed items
-            assert item in menu, '`menu` needs to have this item, but it is missing: `{}`'.format(item)
+            assert item in menu, '`menu` にこの項目が必要ですが、見つかりません: `{}`'.format(item)
             # no items duplicated
-            assert menu.count(item) == 1, 'Each item should appear in `menu` once, but `{}` appears {} times.'.format(item, menu.count(item))
+            assert menu.count(item) == 1, '各項目は `menu` に1回だけ現れるべきですが、`{}` が {} 回現れています。'.format(item, menu.count(item))
         
 
 class NumCustomers(EqualityCheckProblem):

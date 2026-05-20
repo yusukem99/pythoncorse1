@@ -20,4 +20,4 @@ def excess_calories(food_type, calories_per_serving, serving_size):
     elif food_type == "liquid":
         return (calories_per_serving / serving_size * 100 >= 70)
     else:
-        raise ValueError("food_type must be 'solid' or 'liquid'")
+        raise ValueError("food_type は 'solid' または 'liquid' である必要があります")

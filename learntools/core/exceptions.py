@@ -11,8 +11,8 @@ class UserlandExceptionIncorrect(Incorrect):
     """
     def __init__(self, exception, args):
         self.wrapped_exception = exception
-        self.msg  = ("When calling your function with arguments `{!r}`, Python"
-                " raised the following exception... **`{}: {}`**").format(
+        self.msg  = ("あなたの関数を引数 `{!r}` で呼び出したところ、"
+                "Pythonが次の例外を発生させました... **`{}: {}`**").format(
                         args, exception.__class__.__name__, exception)
     def __str__(self):
         return self.msg

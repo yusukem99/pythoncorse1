@@ -73,43 +73,43 @@ class BlackJack:
     def play(self):
         p1, p2 = self.deal(), self.deal()
         self.player_cards = [p1, p2]
-        self.log('Player starts with {} and {} (total = {})'.format(
+        self.log('プレイヤーの初手は {} と {} （合計 = {}）'.format(
             p1, p2, self.player_total,
             ))
         d1 = self.deal()
-        self.log('Dealer starts with {}'.format(d1))
+        self.log('ディーラーの初手は {}'.format(d1))
         self.dealer_cards = [d1]
 
-        self.log('\n__Player\'s turn__')
+        self.log('\n__プレイヤーのターン__')
         while self.player_hits():
             c = self.deal()
             self.player_cards.append(c)
-            self.log('Player hits and receives {}. (total = {})'.format(
+            self.log('プレイヤーはヒットして {} を引いた。（合計 = {}）'.format(
                 c, self.player_total))
             if self.player_total > 21:
-                self.log('Player busts! Dealer wins.')
+                self.log('プレイヤーはバスト！ ディーラーの勝ち。')
                 return -1
-        self.log('Player stays')
+        self.log('プレイヤーはステイ')
 
-        self.log('\n__Dealer\'s turn__')
+        self.log('\n__ディーラーのターン__')
         while True:
             c = self.deal()
             self.dealer_cards.append(c)
-            self.log('Dealer hits and receives {}. (total = {})'.format(
+            self.log('ディーラーはヒットして {} を引いた。（合計 = {}）'.format(
                 c, self.dealer_total))
             if self.dealer_total > 21:
-                self.log('Dealer busts! Player wins.')
+                self.log('ディーラーはバスト！ プレイヤーの勝ち。')
                 return 1
             # Stand on 17
             elif self.dealer_total >= 17:
-                self.log('Dealer stands.')
+                self.log('ディーラーはステイ。')
                 if self.dealer_total >= self.player_total:
-                    self.log('Dealer wins. {} >= {}'.format(
+                    self.log('ディーラーの勝ち。{} >= {}'.format(
                         self.dealer_total, self.player_total,
                         ))
                     return -1
                 else:
-                    self.log('Player wins. {} > {}'.format(
+                    self.log('プレイヤーの勝ち。{} > {}'.format(
                         self.player_total, self.dealer_total,
                         ))
                     return 1
