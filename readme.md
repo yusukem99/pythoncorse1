@@ -61,6 +61,12 @@ Pythonの基本的なコーディング技術を習得する。ネットワー�
 | 第6章: 文字列と辞書 | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/tutorials/strings-and-dictionaries.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/exercises/exercise-strings-and-dictionaries.ipynb) |
 | 第7章: 外部ライブラリ | [解説を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/tutorials/working-with-external-libraries.ipynb) | [演習を開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/python/exercises/exercise-working-with-external-libraries.ipynb) |
 
+## 発展 - もう一歩深く
+
+| 教材 | リンク |
+|---|---|
+| クラス | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/classes.ipynb) |
+
 # シラバス
 
 ## 第１回
