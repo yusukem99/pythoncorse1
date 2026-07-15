@@ -66,6 +66,7 @@ Pythonの基本的なコーディング技術を習得する。ネットワー�
 | 教材 | リンク |
 |---|---|
 | クラス | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/classes.ipynb) |
+| 簡単なゲームを作ろう | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/mini-hacking-game.ipynb) |
 
 # シラバス
 
