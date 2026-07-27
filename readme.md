@@ -68,6 +68,7 @@ Pythonの基本的なコーディング技術を習得する。ネットワー�
 | クラス | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/classes.ipynb) |
 | 簡単なゲームを作ろう | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/mini-hacking-game.ipynb) |
 | バイナリとセキュリティの基礎 | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/binary-and-security.ipynb) |
+| ネットワークプログラミング | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/network-programming.ipynb) |
 
 # シラバス
 
