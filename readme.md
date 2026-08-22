@@ -69,7 +69,7 @@ Pythonの基本的なコーディング技術を習得する。ネットワー�
 | 簡単なゲームを作ろう | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/mini-hacking-game.ipynb) |
 | バイナリとセキュリティの基礎 | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/binary-and-security.ipynb) |
 | ネットワークプログラミング | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/network-programming.ipynb) |
-| コイン集めアリーナ（クラス対戦演習） | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/battle-arena.ipynb) |
+| コイン争奪戦（クラス対戦演習） | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/coin-battle.ipynb) |
 | バイブコーディング制作回 | [開く](https://colab.research.google.com/github/yusukem99/pythoncorse1/blob/main/notebooks/advanced/vibe-coding.ipynb) |
 
 # シラバス
