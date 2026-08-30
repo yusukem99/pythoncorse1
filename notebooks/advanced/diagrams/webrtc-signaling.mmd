@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant A as ブラウザA
+    participant S as シグナリングサーバ
+    participant B as ブラウザB
+    A->>S: offer
+    S->>B: offer
+    B->>S: answer
+    S->>A: answer
+    A->>S: ICE候補
+    S->>B: ICE候補
+    B->>S: ICE候補
+    S->>A: ICE候補
+    A->>B: P2Pで直接データが流れる
