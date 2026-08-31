@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant B as bot
+    participant X as 攻撃者
+    participant S as サーバ
+    B->>S: POST /join
+    S->>B: id と 共通鍵
+    Note over B: 署名 = sha256(共通鍵|id|向き)
+    B->>S: POST /move id, 向き, 署名
+    Note over S: 覚えている共通鍵で同じ計算をして照合
+    S->>B: ok
+    X-->>S: POST /move id, 向き, でたらめな署名
+    S->>X: 403

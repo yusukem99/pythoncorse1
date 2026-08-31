@@ -1,0 +1,10 @@
+sequenceDiagram
+    participant B as bot
+    participant X as 攻撃者
+    participant S as サーバ
+    B->>S: POST /join
+    S->>B: id と 共通鍵
+    B->>S: POST /move id, 向き, 共通鍵
+    Note over B,S: 通信を覗くと共通鍵が丸見え
+    X-->>S: POST /move id, 向き, 盗んだ共通鍵
+    S->>X: ok

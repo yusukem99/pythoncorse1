@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant B as あなたのbot
+    participant S as アリーナサーバ
+    participant V as 盤面のブラウザ
+    B->>S: POST /join 名前
+    S->>B: id
+    loop 制限時間まで
+        B->>S: GET /state
+        S->>B: コインと全プレイヤーの位置
+        B->>S: POST /move id と向き
+        S->>B: 新しい位置と得点
+    end
+    loop 0.15秒ごと
+        V->>S: GET /state
+        S->>V: 盤面を描き直す
+    end
