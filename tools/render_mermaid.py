@@ -7,6 +7,8 @@
 を見つけ、その .mmd ファイルを画像に変換して data URI で差し替える。
 パスはリポジトリのルートからの相対パス。新しく図を置くときは
 括弧の中を空にした行 ![diagrams/xxx.mmd]() を書いてから、このツールを実行する。
+alt テキストが .png のときは、そのファイルをそのまま埋め込む。
+PNG の作り方は、同じフォルダにある同名の .py が生成スクリプト。
 
 使い方:
     python tools/render_mermaid.py notebooks/advanced/network-programming.ipynb
@@ -18,7 +20,7 @@ import sys
 
 import requests
 
-IMAGE = re.compile(r"!\[([^\]]+\.mmd)\]\([^)]*\)")
+IMAGE = re.compile(r"!\[([^\]]+\.(?:mmd|png))\]\([^)]*\)")
 
 
 def render_png(source):
@@ -32,9 +34,14 @@ def render_png(source):
 
 def replace_image(match):
     mmd_path = match.group(1)
-    with open(mmd_path, encoding="utf-8") as f:
-        source = f.read()
-    png = render_png(source)
+    if mmd_path.endswith(".png"):
+        # 生成済みのPNGをそのまま埋め込む。作り方は同名の .py を参照
+        with open(mmd_path, "rb") as f:
+            png = f.read()
+    else:
+        with open(mmd_path, encoding="utf-8") as f:
+            source = f.read()
+        png = render_png(source)
     png_b64 = base64.b64encode(png).decode()
     print("  ", mmd_path, "->", len(png), "bytes")
     return "![{}](data:image/png;base64,{})".format(mmd_path, png_b64)
