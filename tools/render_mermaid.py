@@ -20,12 +20,17 @@ import sys
 
 import requests
 
+FONT = "Noto Sans CJK JP"   # mermaid.ink のサーバに日本語の字形で描かせる
+
 IMAGE = re.compile(r"!\[([^\]]+\.(?:mmd|png))\]\([^)]*\)")
 
 
 def render_png(source):
     """mermaid.ink で Mermaid ソースを PNG にする"""
-    encoded = base64.urlsafe_b64encode(source.encode()).decode()
+    state = {"code": source,
+             "mermaid": {"theme": "default",
+                         "themeVariables": {"fontFamily": FONT}}}
+    encoded = base64.urlsafe_b64encode(json.dumps(state).encode()).decode()
     url = "https://mermaid.ink/img/" + encoded + "?type=png&bgColor=ffffff"
     res = requests.get(url, timeout=60)
     res.raise_for_status()

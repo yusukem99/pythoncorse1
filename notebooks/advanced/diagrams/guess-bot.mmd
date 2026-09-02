@@ -1,0 +1,15 @@
+sequenceDiagram
+    box rgb(255,243,191)
+        participant L as botのループ
+        participant A as ask(number)
+    end
+    box rgb(232,232,250)
+        participant S as 判定サーバ
+    end
+    loop 当たるまで二分探索
+        L->>A: 真ん中の数を予想
+        A->>S: requests で送る
+        S->>A: correct / low / high
+        A->>L: 結果を返す
+        Note over L: 結果に合わせて範囲を半分に
+    end

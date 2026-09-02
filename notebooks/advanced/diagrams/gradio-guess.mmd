@@ -1,0 +1,7 @@
+flowchart LR
+    B["ブラウザ<br>予想を入力"] --> G["Gradioの画面"]
+    G --> F["guess_ui(n)"]
+    F -->|"requests で予想を送る"| S["判定サーバ<br>練習問題7のもの"]
+    S -->|"result が返る"| F
+    F -->|"ヒントのメッセージ"| G
+    style F fill:#fff3bf,stroke:#e67700,stroke-width:2px
