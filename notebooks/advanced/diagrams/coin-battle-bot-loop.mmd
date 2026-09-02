@@ -1,0 +1,8 @@
+flowchart TD
+    A["state を取得する"] --> B["自分を探す"]
+    B --> C["部品1<br>一番近いコインを探す"]
+    C --> D["部品2<br>向きを決める"]
+    D --> E["move を送る"]
+    E -->|"0.1秒待って繰り返す"| A
+    style C fill:#fff3bf,stroke:#e67700,stroke-width:2px
+    style D fill:#fff3bf,stroke:#e67700,stroke-width:2px

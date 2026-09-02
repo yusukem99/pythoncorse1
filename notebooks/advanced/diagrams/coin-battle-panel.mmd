@@ -1,0 +1,7 @@
+flowchart LR
+    B["ブラウザ<br>ボタンを押す"] --> G["Gradioの操作パネル"]
+    G --> F["move(direction)"]
+    F -->|"requests で /move を送る"| S["アリーナサーバ"]
+    S -->|"最新の盤面"| F
+    F -->|"盤面の絵と得点"| G
+    style F fill:#fff3bf,stroke:#e67700,stroke-width:2px
